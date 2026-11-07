@@ -1,351 +1,368 @@
+/* Редакционная подборка фильмов.
+ * id связывает карточку, квиз и личный список.
+ * watchUrl — проверенная внешняя страница этого фильма на Rezka.
+ * Жанры и настроения расшифровываются в engine.js.
+ */
 globalThis.MOVIES = [
   {
-    "id": "grand-budapest",
-    "title": "Отель «Гранд Будапешт»",
-    "en": "The Grand Budapest Hotel",
-    "year": 2014,
-    "minutes": 100,
-    "genres": [
-      "comedy",
-      "adventure"
-    ],
-    "moods": [
-      "light",
-      "wonder"
-    ],
-    "intensity": 2,
-    "description": "Консьерж легендарного отеля и его юный помощник оказываются в центре истории о наследстве и пропавшей картине.",
-    "poster": "assets/posters/grand-budapest.png",
-    "color": "#d68d9c"
+    id: 'grand-budapest',
+    title: 'Отель «Гранд Будапешт»',
+    en: 'The Grand Budapest Hotel',
+    year: 2014,
+    minutes: 100,
+    genres: ['comedy', 'adventure'],
+    moods: ['light', 'wonder'],
+    intensity: 2,
+    description:
+      'Консьерж легендарного отеля и его юный помощник оказываются в центре истории о наследстве и пропавшей картине.',
+    poster: 'assets/posters/grand-budapest.png',
+    color: '#d68d9c',
+    watchUrl: 'https://rezka-tv.org/films/comedy/1278-otel-grand-budapesht-2014.html',
   },
   {
-    "id": "knives-out",
-    "title": "Достать ножи",
-    "en": "Knives Out",
-    "year": 2019,
-    "minutes": 130,
-    "genres": [
-      "thriller",
-      "comedy"
-    ],
-    "moods": [
-      "tense",
-      "wonder"
-    ],
-    "intensity": 2,
-    "description": "Частный детектив распутывает семейные тайны после загадочной смерти известного писателя.",
-    "poster": "assets/posters/knives-out.jpg",
-    "color": "#a68b61"
+    id: 'ready-or-not',
+    title: 'Я иду искать',
+    en: 'Ready or Not',
+    year: 2019,
+    minutes: 95,
+    genres: ['horror', 'thriller', 'comedy'],
+    moods: ['tense'],
+    intensity: 3,
+    description:
+      'Свадебный вечер оборачивается для молодой невесты опасной семейной игрой, правила которой никто не спешит объяснять.',
+    poster: 'assets/posters/ready-or-not.jpg',
+    color: '#9a514a',
+    watchUrl: 'https://rezka-tv.org/films/thriller/31884-ya-idu-iskat-2019.html',
   },
   {
-    "id": "interstellar",
-    "title": "Интерстеллар",
-    "en": "Interstellar",
-    "year": 2014,
-    "minutes": 169,
-    "genres": [
-      "scifi",
-      "drama",
-      "adventure"
-    ],
-    "moods": [
-      "wonder",
-      "tense"
-    ],
-    "intensity": 3,
-    "description": "Пилот отправляется за пределы Солнечной системы в поисках нового дома для человечества.",
-    "poster": "assets/posters/interstellar.jpg",
-    "color": "#8aabc3"
+    id: 'interstellar',
+    title: 'Интерстеллар',
+    en: 'Interstellar',
+    year: 2014,
+    minutes: 169,
+    genres: ['scifi', 'drama', 'adventure'],
+    moods: ['wonder', 'tense'],
+    intensity: 3,
+    description:
+      'Пилот отправляется за пределы Солнечной системы в поисках нового дома для человечества.',
+    poster: 'assets/posters/interstellar.jpg',
+    color: '#8aabc3',
+    watchUrl: 'https://rezka-tv.org/films/fiction/2259-interstellar-2014.html',
   },
   {
-    "id": "inception",
-    "title": "Начало",
-    "en": "Inception",
-    "year": 2010,
-    "minutes": 148,
-    "genres": [
-      "scifi",
-      "thriller"
-    ],
-    "moods": [
-      "tense",
-      "wonder"
-    ],
-    "intensity": 3,
-    "description": "Специалист по проникновению в чужие сны получает задачу, которая переворачивает правила его работы.",
-    "poster": "assets/posters/inception.jpg",
-    "color": "#477d91"
+    id: 'inception',
+    title: 'Начало',
+    en: 'Inception',
+    year: 2010,
+    minutes: 148,
+    genres: ['scifi', 'thriller'],
+    moods: ['tense', 'wonder'],
+    intensity: 3,
+    description:
+      'Специалист по проникновению в чужие сны получает задачу, которая переворачивает правила его работы.',
+    poster: 'assets/posters/inception.jpg',
+    color: '#477d91',
+    watchUrl: 'https://rezka-tv.org/films/action/770-nachalo-2010.html',
   },
   {
-    "id": "amelie",
-    "title": "Амели",
-    "en": "Amélie",
-    "year": 2001,
-    "minutes": 123,
-    "genres": [
-      "romance",
-      "comedy"
-    ],
-    "moods": [
-      "warm",
-      "wonder"
-    ],
-    "intensity": 1,
-    "description": "Застенчивая парижанка придумывает маленькие чудеса для окружающих и учится замечать собственные желания.",
-    "poster": "assets/posters/amelie.jpg",
-    "color": "#a04335"
+    id: 'voicemails-for-isabelle',
+    title: 'Голосовые сообщения для Изабель',
+    en: 'Voicemails for Isabelle',
+    year: 2026,
+    minutes: 118,
+    genres: ['romance', 'comedy', 'drama'],
+    moods: ['warm'],
+    intensity: 2,
+    description:
+      'Джилл продолжает оставлять голосовые сообщения умершей сестре, не зная, что её номер уже достался незнакомому мужчине.',
+    poster: 'assets/posters/voicemails-for-isabelle.jpg',
+    color: '#d68c93',
+    watchUrl: 'https://rezka-tv.org/films/comedy/90420-soobscheniya-dlya-izabel-2026.html',
   },
   {
-    "id": "paddington-2",
-    "title": "Приключения Паддингтона 2",
-    "en": "Paddington 2",
-    "year": 2017,
-    "minutes": 104,
-    "genres": [
-      "comedy",
-      "adventure"
-    ],
-    "moods": [
-      "light",
-      "warm"
-    ],
-    "intensity": 1,
-    "description": "Вежливый медвежонок ищет идеальный подарок для тёти Люси и неожиданно ввязывается в погоню за похитителем.",
-    "poster": "assets/posters/paddington-2.jpg",
-    "color": "#6b9ec3"
+    id: 'paddington-2',
+    title: 'Приключения Паддингтона 2',
+    en: 'Paddington 2',
+    year: 2017,
+    minutes: 104,
+    genres: ['comedy', 'adventure'],
+    moods: ['light', 'warm'],
+    intensity: 1,
+    description:
+      'Вежливый медвежонок ищет идеальный подарок для тёти Люси и неожиданно ввязывается в погоню за похитителем.',
+    poster: 'assets/posters/paddington-2.jpg',
+    color: '#6b9ec3',
+    watchUrl:
+      'https://rezka-tv.org/films/comedy/26873-priklyucheniya-paddingtona-2-2017-latest.html',
   },
   {
-    "id": "wall-e",
-    "title": "ВАЛЛ·И",
-    "en": "WALL·E",
-    "year": 2008,
-    "minutes": 98,
-    "genres": [
-      "animation",
-      "scifi",
-      "romance"
-    ],
-    "moods": [
-      "warm",
-      "wonder"
-    ],
-    "intensity": 1,
-    "description": "Одинокий робот, убирающий опустевшую Землю, встречает необычную гостью и открывает для себя огромный мир.",
-    "poster": "assets/posters/wall-e.jpg",
-    "color": "#c29d58"
+    id: 'wall-e',
+    title: 'ВАЛЛ·И',
+    en: 'WALL·E',
+    year: 2008,
+    minutes: 98,
+    genres: ['animation', 'scifi', 'romance'],
+    moods: ['warm', 'wonder'],
+    intensity: 1,
+    description:
+      'Одинокий робот, убирающий опустевшую Землю, встречает необычную гостью и открывает для себя огромный мир.',
+    poster: 'assets/posters/wall-e.jpg',
+    color: '#c29d58',
+    watchUrl: 'https://rezka-tv.org/cartoons/fiction/776-valli-2008.html',
   },
   {
-    "id": "soul",
-    "title": "Душа",
-    "en": "Soul",
-    "year": 2020,
-    "minutes": 101,
-    "genres": [
-      "animation",
-      "drama"
-    ],
-    "moods": [
-      "warm",
-      "wonder"
-    ],
-    "intensity": 2,
-    "description": "Джазовый музыкант оказывается в необычном месте и заново задаётся вопросом, из чего складывается хорошая жизнь.",
-    "poster": "assets/posters/soul.jpg",
-    "color": "#699bba"
+    id: 'soul',
+    title: 'Душа',
+    en: 'Soul',
+    year: 2020,
+    minutes: 101,
+    genres: ['animation', 'drama'],
+    moods: ['warm', 'wonder'],
+    intensity: 2,
+    description:
+      'Джазовый музыкант оказывается в необычном месте и заново задаётся вопросом, из чего складывается хорошая жизнь.',
+    poster: 'assets/posters/soul.jpg',
+    color: '#699bba',
+    watchUrl: 'https://rezka-tv.org/cartoons/fantasy/35959-dusha-2020.html',
   },
   {
-    "id": "truman-show",
-    "title": "Шоу Трумана",
-    "en": "The Truman Show",
-    "year": 1998,
-    "minutes": 103,
-    "genres": [
-      "drama",
-      "scifi"
-    ],
-    "moods": [
-      "wonder",
-      "tense"
-    ],
-    "intensity": 2,
-    "description": "Житель идеального городка начинает замечать, что привычный мир ведёт себя слишком странно.",
-    "poster": "assets/posters/truman-show.jpg",
-    "color": "#65a6b8"
+    id: 'truman-show',
+    title: 'Шоу Трумана',
+    en: 'The Truman Show',
+    year: 1998,
+    minutes: 103,
+    genres: ['drama', 'scifi'],
+    moods: ['wonder', 'tense'],
+    intensity: 2,
+    description:
+      'Житель идеального городка начинает замечать, что привычный мир ведёт себя слишком странно.',
+    poster: 'assets/posters/truman-show.jpg',
+    color: '#65a6b8',
+    watchUrl: 'https://rezka-tv.org/films/drama/775-shou-trumana-1998.html',
   },
   {
-    "id": "back-to-future",
-    "title": "Назад в будущее",
-    "en": "Back to the Future",
-    "year": 1985,
-    "minutes": 116,
-    "genres": [
-      "scifi",
-      "comedy",
-      "adventure"
-    ],
-    "moods": [
-      "light",
-      "wonder"
-    ],
-    "intensity": 2,
-    "description": "Подросток случайно переносится в прошлое и пытается вернуться домой, не нарушив историю собственной семьи.",
-    "poster": "assets/posters/back-to-future.jpg",
-    "color": "#de944a"
+    id: 'back-to-future',
+    title: 'Назад в будущее',
+    en: 'Back to the Future',
+    year: 1985,
+    minutes: 116,
+    genres: ['scifi', 'comedy', 'adventure'],
+    moods: ['light', 'wonder'],
+    intensity: 2,
+    description:
+      'Подросток случайно переносится в прошлое и пытается вернуться домой, не нарушив историю собственной семьи.',
+    poster: 'assets/posters/back-to-future.jpg',
+    color: '#de944a',
+    watchUrl: 'https://rezka-tv.org/films/adventures/1171-nazad-v-buduschee-1985.html',
   },
   {
-    "id": "la-la-land",
-    "title": "Ла-Ла Ленд",
-    "en": "La La Land",
-    "year": 2016,
-    "minutes": 128,
-    "genres": [
-      "romance",
-      "drama"
-    ],
-    "moods": [
-      "warm",
-      "wonder"
-    ],
-    "intensity": 2,
-    "description": "Актриса и джазовый пианист встречаются в Лос-Анджелесе, где любовь приходится совмещать с большими мечтами.",
-    "poster": "assets/posters/la-la-land.png",
-    "color": "#5e72b0"
+    id: 'la-la-land',
+    title: 'Ла-Ла Ленд',
+    en: 'La La Land',
+    year: 2016,
+    minutes: 128,
+    genres: ['romance', 'drama'],
+    moods: ['warm', 'wonder'],
+    intensity: 2,
+    description:
+      'Актриса и джазовый пианист встречаются в Лос-Анджелесе, где любовь приходится совмещать с большими мечтами.',
+    poster: 'assets/posters/la-la-land.png',
+    color: '#5e72b0',
+    watchUrl: 'https://rezka-tv.org/films/drama/23320-la-la-lend-2016.html',
   },
   {
-    "id": "little-miss-sunshine",
-    "title": "Маленькая мисс Счастье",
-    "en": "Little Miss Sunshine",
-    "year": 2006,
-    "minutes": 102,
-    "genres": [
-      "comedy",
-      "drama"
-    ],
-    "moods": [
-      "warm",
-      "light"
-    ],
-    "intensity": 2,
-    "description": "Необычная семья садится в старый фургон, чтобы отвезти маленькую Олив на конкурс её мечты.",
-    "poster": "assets/posters/little-miss-sunshine.jpg",
-    "color": "#d6bc48"
+    id: 'night-at-the-museum',
+    title: 'Ночь в музее',
+    en: 'Night at the Museum',
+    year: 2006,
+    minutes: 108,
+    genres: ['comedy', 'adventure', 'fantasy'],
+    moods: ['light', 'wonder'],
+    intensity: 1,
+    description:
+      'Новый ночной охранник музея обнаруживает, что после закрытия экспонаты начинают жить по собственным правилам.',
+    poster: 'assets/posters/night-at-the-museum.jpg',
+    color: '#b49464',
+    watchUrl: 'https://rezka-tv.org/films/adventures/1432-noch-v-muzee-2006.html',
   },
   {
-    "id": "about-time",
-    "title": "Бойфренд из будущего",
-    "en": "About Time",
-    "year": 2013,
-    "minutes": 123,
-    "genres": [
-      "romance",
-      "comedy",
-      "drama"
-    ],
-    "moods": [
-      "warm",
-      "light"
-    ],
-    "intensity": 2,
-    "description": "Молодой человек узнаёт о семейном даре путешествовать во времени и пробует применить его к обычной жизни.",
-    "poster": "assets/posters/about-time.jpg",
-    "color": "#c86a57"
+    id: 'pride-and-prejudice',
+    title: 'Гордость и предубеждение',
+    en: 'Pride & Prejudice',
+    year: 2005,
+    minutes: 127,
+    genres: ['romance', 'drama'],
+    moods: ['warm'],
+    intensity: 2,
+    description:
+      'Элизабет Беннет встречает сдержанного мистера Дарси, и взаимные первые впечатления становятся препятствием на пути к пониманию.',
+    poster: 'assets/posters/pride-and-prejudice.jpg',
+    color: '#a39371',
+    watchUrl: 'https://rezka-tv.org/films/drama/3560-gordost-i-predubezhdenie-2005.html',
   },
   {
-    "id": "ratatouille",
-    "title": "Рататуй",
-    "en": "Ratatouille",
-    "year": 2007,
-    "minutes": 111,
-    "genres": [
-      "animation",
-      "comedy"
-    ],
-    "moods": [
-      "warm",
-      "light"
-    ],
-    "intensity": 1,
-    "description": "Крысёнок с тонким вкусом мечтает стать шеф-поваром и находит неожиданного союзника на парижской кухне.",
-    "poster": "assets/posters/ratatouille.jpg",
-    "color": "#7c98b1"
+    id: 'ratatouille',
+    title: 'Рататуй',
+    en: 'Ratatouille',
+    year: 2007,
+    minutes: 111,
+    genres: ['animation', 'comedy'],
+    moods: ['warm', 'light'],
+    intensity: 1,
+    description:
+      'Крысёнок с тонким вкусом мечтает стать шеф-поваром и находит неожиданного союзника на парижской кухне.',
+    poster: 'assets/posters/ratatouille.jpg',
+    color: '#7c98b1',
+    watchUrl: 'https://rezka-tv.org/cartoons/adventures/7382-ratatuy-2007.html',
   },
   {
-    "id": "arrival",
-    "title": "Прибытие",
-    "en": "Arrival",
-    "year": 2016,
-    "minutes": 116,
-    "genres": [
-      "scifi",
-      "drama"
-    ],
-    "moods": [
-      "wonder",
-      "tense"
-    ],
-    "intensity": 3,
-    "description": "Лингвист пытается понять язык загадочных гостей Земли, пока мир ищет ответ на цель их появления.",
-    "poster": "assets/posters/arrival.jpg",
-    "color": "#728980"
+    id: 'divergent',
+    title: 'Дивергент',
+    en: 'Divergent',
+    year: 2014,
+    minutes: 139,
+    genres: ['scifi', 'action', 'adventure'],
+    moods: ['tense', 'wonder'],
+    intensity: 2,
+    description:
+      'В обществе, где каждому отведена одна фракция, Трис узнаёт, что её способности не укладываются в установленные границы.',
+    poster: 'assets/posters/divergent.jpg',
+    color: '#b38662',
+    watchUrl: 'https://rezka-tv.org/films/fiction/1847-divergent-2014.html',
   },
   {
-    "id": "fantastic-mr-fox",
-    "title": "Бесподобный мистер Фокс",
-    "en": "Fantastic Mr. Fox",
-    "year": 2009,
-    "minutes": 87,
-    "genres": [
-      "animation",
-      "adventure",
-      "comedy"
-    ],
-    "moods": [
-      "light",
-      "wonder"
-    ],
-    "intensity": 2,
-    "description": "Хитроумный лис возвращается к рискованным вылазкам и ставит под угрозу спокойствие всего звериного соседства.",
-    "poster": "assets/posters/fantastic-mr-fox.jpg",
-    "color": "#c58a49"
+    id: 'coraline',
+    title: 'Коралина в Стране Кошмаров',
+    en: 'Coraline',
+    year: 2009,
+    minutes: 100,
+    genres: ['animation', 'fantasy', 'adventure'],
+    moods: ['wonder', 'tense'],
+    intensity: 2,
+    description:
+      'Коралина находит в новом доме проход в удивительно похожий мир, где за заманчивым уютом скрываются тревожные тайны.',
+    poster: 'assets/posters/coraline.jpg',
+    color: '#737db0',
+    watchUrl: 'https://rezka-tv.org/cartoons/adventures/4455-koralina-v-strane-koshmarov-2008.html',
   },
   {
-    "id": "walter-mitty",
-    "title": "Невероятная жизнь Уолтера Митти",
-    "en": "The Secret Life of Walter Mitty",
-    "year": 2013,
-    "minutes": 114,
-    "genres": [
-      "adventure",
-      "comedy",
-      "drama"
-    ],
-    "moods": [
-      "wonder",
-      "warm"
-    ],
-    "intensity": 1,
-    "description": "Скромный сотрудник журнала выходит из мира фантазий и отправляется на поиски пропавшего фотокадра.",
-    "poster": "assets/posters/walter-mitty.jpg",
-    "color": "#6c9da8"
+    id: 'pursuit-of-happyness',
+    title: 'В погоне за счастьем',
+    en: 'The Pursuit of Happyness',
+    year: 2006,
+    minutes: 117,
+    genres: ['drama'],
+    moods: ['warm'],
+    intensity: 3,
+    description:
+      'Отец маленького мальчика борется с финансовыми трудностями и берётся за шанс начать новую карьеру.',
+    poster: 'assets/posters/pursuit-of-happyness.jpg',
+    color: '#b59573',
+    watchUrl: 'https://rezka-tv.org/films/drama/826-v-pogone-za-schastem-2006.html',
   },
   {
-    "id": "the-martian",
-    "title": "Марсианин",
-    "en": "The Martian",
-    "year": 2015,
-    "minutes": 142,
-    "genres": [
-      "scifi",
-      "adventure",
-      "drama"
-    ],
-    "moods": [
-      "wonder",
-      "tense"
-    ],
-    "intensity": 2,
-    "description": "Оставшийся на Марсе астронавт использует науку, изобретательность и чувство юмора, чтобы дождаться помощи.",
-    "poster": "assets/posters/the-martian.jpg",
-    "color": "#b86f4e"
-  }
+    id: 'project-hail-mary',
+    title: 'Проект «Конец света»',
+    en: 'Project Hail Mary',
+    year: 2026,
+    minutes: 156,
+    genres: ['scifi', 'adventure', 'drama'],
+    moods: ['wonder', 'tense'],
+    intensity: 2,
+    description:
+      'Учитель просыпается на далёком космическом корабле без воспоминаний и пытается понять свою роль в миссии по спасению Земли.',
+    poster: 'assets/posters/project-hail-mary.jpg',
+    color: '#a98753',
+    watchUrl: 'https://rezka-tv.org/films/fiction/80586-proekt-ave-mariya-2026-latest.html',
+  },
+  {
+    id: 'hunger-games',
+    title: 'Голодные игры',
+    en: 'The Hunger Games',
+    year: 2012,
+    minutes: 142,
+    genres: ['scifi', 'action', 'adventure'],
+    moods: ['tense'],
+    intensity: 3,
+    description:
+      'Китнисс добровольно занимает место сестры на жестоком телевизионном состязании, где участникам приходится бороться за выживание.',
+    poster: 'assets/posters/hunger-games.jpg',
+    color: '#bb8146',
+    watchUrl: 'https://rezka-tv.org/films/action/205-golodnye-igry-2012.html',
+  },
+  {
+    id: 'my-neighbor-totoro',
+    title: 'Мой сосед Тоторо',
+    en: 'My Neighbor Totoro',
+    year: 1988,
+    minutes: 86,
+    genres: ['animation', 'fantasy'],
+    moods: ['warm', 'wonder', 'light'],
+    intensity: 1,
+    description:
+      'Две сестры переезжают в сельский дом и открывают для себя мир лесных существ рядом с повседневной жизнью.',
+    poster: 'assets/posters/my-neighbor-totoro.jpg',
+    color: '#809970',
+    watchUrl: 'https://rezka-tv.org/animation/adventures/1347-moy-sosed-totoro-1988.html',
+  },
+  {
+    id: 'ballerina',
+    title: 'Балерина',
+    en: 'Ballerina',
+    year: 2016,
+    minutes: 89,
+    genres: ['animation', 'adventure', 'comedy'],
+    moods: ['warm', 'light'],
+    intensity: 1,
+    description:
+      'Юная Фелис мечтает танцевать на парижской сцене и отправляется в большой город вместе с другом-изобретателем.',
+    poster: 'assets/posters/ballerina.png',
+    color: '#7997b3',
+    watchUrl: 'https://rezka-tv.org/cartoons/comedy/20903-balerina-2016.html',
+  },
+  {
+    id: 'leon',
+    title: 'Леон',
+    en: 'Léon: The Professional',
+    year: 1994,
+    minutes: 110,
+    genres: ['action', 'thriller', 'drama'],
+    moods: ['tense'],
+    intensity: 3,
+    description:
+      'После трагедии в семье девочка ищет убежища у замкнутого соседа, чья опасная профессия определяет правила его жизни.',
+    poster: 'assets/posters/leon.jpg',
+    color: '#8a9379',
+    watchUrl: 'https://rezka-tv.org/films/drama/760-leon-1994.html',
+  },
+  {
+    id: 'charlies-angels',
+    title: 'Ангелы Чарли',
+    en: "Charlie's Angels",
+    year: 2000,
+    minutes: 98,
+    genres: ['action', 'comedy', 'adventure'],
+    moods: ['light'],
+    intensity: 2,
+    description:
+      'Три находчивые сотрудницы частного агентства берутся за поиски похищенного разработчика и сталкиваются с запутанным заговором.',
+    poster: 'assets/posters/charlies-angels.jpg',
+    color: '#bd705d',
+    watchUrl: 'https://rezka-tv.org/films/action/3362-angely-charli-2000.html',
+  },
+  {
+    id: 'devil-wears-prada',
+    title: 'Дьявол носит Prada',
+    en: 'The Devil Wears Prada',
+    year: 2006,
+    minutes: 109,
+    genres: ['comedy', 'drama'],
+    moods: ['light'],
+    intensity: 2,
+    description:
+      'Начинающая журналистка становится ассистенткой влиятельного редактора модного журнала и осваивает мир с безжалостными правилами.',
+    poster: 'assets/posters/devil-wears-prada.jpg',
+    color: '#b35359',
+    watchUrl: 'https://rezka-tv.org/films/drama/4264-dyavol-nosit-prada-2006.html',
+  },
 ];

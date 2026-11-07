@@ -1,14 +1,140 @@
-/* Pure recommendation rules shared by the quiz and the two-person mode. */
-(function(root){
+/* Правила подбора общие для обычного квиза и режима для двоих. */
+(function (root) {
   'use strict';
-  const genres={comedy:'комедия',drama:'драма',scifi:'фантастика',thriller:'триллер',animation:'анимация',romance:'романтика',adventure:'приключения'};
-  const moods={light:'лёгкий вечер',wonder:'чувство открытия',tense:'интрига',warm:'тёплая история'};
-  function fitsDuration(movie,value){return value==='any'||movie.minutes<=Number(value)}
-  function score(movie,p){let s=0;if(movie.moods.includes(p.mood))s+=5;if(p.genre==='any'||movie.genres.includes(p.genre))s+=4;if(fitsDuration(movie,p.duration))s+=3;else s-=8;if(p.intensity==='any'||movie.intensity<=Number(p.intensity))s+=2;else s-=4;return s}
-  function reasons(movie,p){const r=[];if(movie.moods.includes(p.mood))r.push('настроение: '+moods[p.mood]);if(p.genre!=='any'&&movie.genres.includes(p.genre))r.push('любимый жанр: '+genres[p.genre]);if(p.duration!=='any'&&fitsDuration(movie,p.duration))r.push('укладывается в '+p.duration+' минут');if(p.intensity!=='any'&&movie.intensity<=Number(p.intensity))r.push('комфортная эмоциональная нагрузка');return r.length?r:['возможность попробовать что-то новое']}
-  function strict(movie,p){return fitsDuration(movie,p.duration)&&(p.intensity==='any'||movie.intensity<=Number(p.intensity))&&(p.genre==='any'||movie.genres.includes(p.genre))&&movie.moods.includes(p.mood)}
-  function recommend(movies,p){let pool=movies.filter(m=>fitsDuration(m,p.duration)&&(p.intensity==='any'||m.intensity<=Number(p.intensity)));if(!pool.length)return{items:[],exact:false};pool=pool.slice().sort((a,b)=>score(b,p)-score(a,p)||a.title.localeCompare(b.title,'ru'));return{items:pool.slice(0,3),exact:pool.slice(0,3).every(m=>strict(m,p))}}
-  function together(movies,a,b){const pool=movies.filter(m=>fitsDuration(m,a.duration)&&fitsDuration(m,b.duration)&&(a.intensity==='any'||m.intensity<=Number(a.intensity))&&(b.intensity==='any'||m.intensity<=Number(b.intensity)));const ranked=pool.map(m=>({movie:m,a:score(m,a),b:score(m,b),exact:strict(m,a)&&strict(m,b)}));ranked.sort((x,y)=>Number(y.exact)-Number(x.exact)||(Math.min(y.a,y.b)-Math.min(x.a,x.b))||(y.a+y.b-x.a-x.b)||x.movie.title.localeCompare(y.movie.title,'ru'));return{items:ranked.slice(0,3),exact:ranked.length>0&&ranked[0].exact}}
-  function clock(start,offset){const [h,m]=start.split(':').map(Number);const total=h*60+m+offset;return String(Math.floor(total/60)%24).padStart(2,'0')+':'+String(total%60).padStart(2,'0')+(total>=1440?' (+1 день)':'')}
-  const api={genres,moods,score,reasons,recommend,together,clock};root.PlotEngine=api;if(typeof module!=='undefined')module.exports=api;
-})(typeof globalThis!=='undefined'?globalThis:this);
+
+  const genres = {
+    comedy: 'комедия',
+    drama: 'драма',
+    scifi: 'фантастика',
+    thriller: 'триллер',
+    animation: 'анимация',
+    romance: 'романтика',
+    adventure: 'приключения',
+    action: 'боевик',
+    horror: 'ужасы',
+    fantasy: 'фэнтези',
+  };
+
+  const moods = {
+    light: 'лёгкий вечер',
+    wonder: 'чувство открытия',
+    tense: 'интрига',
+    warm: 'тёплая история',
+  };
+
+  const POINTS = {
+    mood: 5,
+    genre: 4,
+    duration: 3,
+    intensity: 2,
+    overTimeLimit: -8,
+    overIntensityLimit: -4,
+  };
+
+  function fitsDuration(movie, duration) {
+    return duration === 'any' || movie.minutes <= Number(duration);
+  }
+
+  function fitsIntensity(movie, intensity) {
+    return intensity === 'any' || movie.intensity <= Number(intensity);
+  }
+
+  // Эти ограничения обязательны, даже когда жанры участников различаются.
+  function fitsHardLimits(movie, preferences) {
+    return fitsDuration(movie, preferences.duration) && fitsIntensity(movie, preferences.intensity);
+  }
+
+  function score(movie, preferences) {
+    let total = 0;
+    if (movie.moods.includes(preferences.mood)) total += POINTS.mood;
+    if (preferences.genre === 'any' || movie.genres.includes(preferences.genre)) {
+      total += POINTS.genre;
+    }
+    total += fitsDuration(movie, preferences.duration) ? POINTS.duration : POINTS.overTimeLimit;
+    total += fitsIntensity(movie, preferences.intensity)
+      ? POINTS.intensity
+      : POINTS.overIntensityLimit;
+    return total;
+  }
+
+  // Объяснение строится из реальных совпадений, а не из случайного текста.
+  function reasons(movie, preferences) {
+    const matches = [];
+    if (movie.moods.includes(preferences.mood)) {
+      matches.push('настроение: ' + moods[preferences.mood]);
+    }
+    if (preferences.genre !== 'any' && movie.genres.includes(preferences.genre)) {
+      matches.push('любимый жанр: ' + genres[preferences.genre]);
+    }
+    if (preferences.duration !== 'any' && fitsDuration(movie, preferences.duration)) {
+      matches.push('укладывается в ' + preferences.duration + ' минут');
+    }
+    if (preferences.intensity !== 'any' && fitsIntensity(movie, preferences.intensity)) {
+      matches.push('комфортная эмоциональная нагрузка');
+    }
+    return matches.length ? matches : ['возможность попробовать что-то новое'];
+  }
+
+  function matchesAllPreferences(movie, preferences) {
+    const genreMatches = preferences.genre === 'any' || movie.genres.includes(preferences.genre);
+    return (
+      fitsHardLimits(movie, preferences) && genreMatches && movie.moods.includes(preferences.mood)
+    );
+  }
+
+  function recommend(movies, preferences) {
+    const eligibleMovies = movies.filter((movie) => fitsHardLimits(movie, preferences));
+    if (!eligibleMovies.length) return { items: [], exact: false };
+
+    eligibleMovies.sort(
+      (first, second) =>
+        score(second, preferences) - score(first, preferences) ||
+        first.title.localeCompare(second.title, 'ru'),
+    );
+    const items = eligibleMovies.slice(0, 3);
+    return { items, exact: items.every((movie) => matchesAllPreferences(movie, preferences)) };
+  }
+
+  function together(movies, firstPreferences, secondPreferences) {
+    const eligibleMovies = movies.filter(
+      (movie) =>
+        fitsHardLimits(movie, firstPreferences) && fitsHardLimits(movie, secondPreferences),
+    );
+    const rankedMovies = eligibleMovies.map((movie) => ({
+      movie,
+      a: score(movie, firstPreferences),
+      b: score(movie, secondPreferences),
+      exact:
+        matchesAllPreferences(movie, firstPreferences) &&
+        matchesAllPreferences(movie, secondPreferences),
+    }));
+
+    // Сначала точные совпадения, затем вариант с лучшей худшей оценкой:
+    // это учитывает обоих, не отдавая приоритет первому участнику.
+    rankedMovies.sort(
+      (first, second) =>
+        Number(second.exact) - Number(first.exact) ||
+        Math.min(second.a, second.b) - Math.min(first.a, first.b) ||
+        second.a + second.b - first.a - first.b ||
+        first.movie.title.localeCompare(second.movie.title, 'ru'),
+    );
+    return {
+      items: rankedMovies.slice(0, 3),
+      exact: rankedMovies.length > 0 && rankedMovies[0].exact,
+    };
+  }
+
+  function clock(startTime, offsetMinutes) {
+    const [hours, minutes] = startTime.split(':').map(Number);
+    const totalMinutes = hours * 60 + minutes + offsetMinutes;
+    const displayHours = String(Math.floor(totalMinutes / 60) % 24).padStart(2, '0');
+    const displayMinutes = String(totalMinutes % 60).padStart(2, '0');
+    const nextDay = totalMinutes >= 1440 ? ' (+1 день)' : '';
+    return `${displayHours}:${displayMinutes}${nextDay}`;
+  }
+
+  const api = { genres, moods, score, reasons, recommend, together, clock };
+  root.PlotEngine = api;
+  // Экспорт нужен для проверок в Node.js. В браузере используется PlotEngine.
+  if (typeof module !== 'undefined') module.exports = api;
+})(typeof globalThis !== 'undefined' ? globalThis : this);

@@ -2,11 +2,6 @@
 
 Titles, release years and runtimes were checked against the movie pages below. Mood tags, intensity levels and short descriptions are editorial content created for this project; they are not age ratings. Posters belong to their respective rights holders and are stored locally for this educational prototype.
 
-## Knives Out
-- Metadata: https://en.wikipedia.org/wiki/Knives_Out
-- Poster: https://thumb.wikimedia.org/wikipedia/en/thumb/1/1f/Knives_Out_poster.jpeg/250px-Knives_Out_poster.jpeg?utm_source=en.wikipedia.org&utm_campaign=parser&utm_content=thumbnail
-- Verified runtime: 130 minutes
-
 ## The Grand Budapest Hotel
 - Metadata: https://en.wikipedia.org/wiki/The_Grand_Budapest_Hotel
 - Poster: https://upload.wikimedia.org/wikipedia/en/1/1c/The_Grand_Budapest_Hotel.png?utm_source=en.wikipedia.org&utm_campaign=parser&utm_content=thumbnail_unscaled
@@ -27,11 +22,6 @@ Titles, release years and runtimes were checked against the movie pages below. M
 - Poster: https://upload.wikimedia.org/wikipedia/en/2/2e/Inception_%282010%29_theatrical_poster.jpg?utm_source=en.wikipedia.org&utm_campaign=parser&utm_content=thumbnail_unscaled
 - Verified runtime: 148 minutes
 
-## Amélie
-- Metadata: https://en.wikipedia.org/wiki/Am%C3%A9lie
-- Poster: https://upload.wikimedia.org/wikipedia/en/5/53/Amelie_poster.jpg?utm_source=en.wikipedia.org&utm_campaign=parser&utm_content=thumbnail_unscaled
-- Verified runtime: 123 minutes
-
 ## The Truman Show
 - Metadata: https://en.wikipedia.org/wiki/The_Truman_Show
 - Poster: https://upload.wikimedia.org/wikipedia/en/c/cd/Trumanshow.jpg
@@ -47,11 +37,6 @@ Titles, release years and runtimes were checked against the movie pages below. M
 - Poster: https://thumb.wikimedia.org/wikipedia/en/thumb/4/4c/WALL-E_poster.jpg/250px-WALL-E_poster.jpg?utm_source=en.wikipedia.org&utm_campaign=parser&utm_content=thumbnail
 - Verified runtime: 98 minutes
 
-## Little Miss Sunshine
-- Metadata: https://en.wikipedia.org/wiki/Little_Miss_Sunshine
-- Poster: https://upload.wikimedia.org/wikipedia/en/1/16/Little_miss_sunshine_poster.jpg
-- Verified runtime: 102 minutes
-
 ## Back to the Future
 - Metadata: https://en.wikipedia.org/wiki/Back_to_the_Future
 - Poster: https://thumb.wikimedia.org/wikipedia/en/thumb/d/d2/Back_to_the_Future.jpg/250px-Back_to_the_Future.jpg?utm_source=en.wikipedia.org&utm_campaign=parser&utm_content=thumbnail
@@ -62,39 +47,15 @@ Titles, release years and runtimes were checked against the movie pages below. M
 - Poster: https://thumb.wikimedia.org/wikipedia/en/thumb/a/ab/La_La_Land_%28film%29.png/250px-La_La_Land_%28film%29.png?utm_source=en.wikipedia.org&utm_campaign=parser&utm_content=thumbnail
 - Verified runtime: 128 minutes
 
-## About Time
-- Metadata: https://en.wikipedia.org/wiki/About_Time_(2013_film)
-- Poster: https://upload.wikimedia.org/wikipedia/en/7/7c/About_Time_%282013_film%29_Poster.jpg
-- Verified runtime: 123 minutes
-
-## Arrival
-- Metadata: https://en.wikipedia.org/wiki/Arrival_(film)
-- Poster: https://upload.wikimedia.org/wikipedia/en/d/df/Arrival%2C_Movie_Poster.jpg?utm_source=en.wikipedia.org&utm_campaign=parser&utm_content=thumbnail_unscaled
-- Verified runtime: 116 minutes
-
 ## Ratatouille
 - Metadata reference: https://en.wikipedia.org/wiki/Ratatouille_(film)
 - Poster: https://upload.wikimedia.org/wikipedia/en/thumb/5/50/RatatouillePoster.jpg/250px-RatatouillePoster.jpg
-
-## The Martian
-- Metadata: https://en.wikipedia.org/wiki/The_Martian_(film)
-- Poster: https://upload.wikimedia.org/wikipedia/en/c/cd/The_Martian_film_poster.jpg
-- Verified runtime: 142 minutes
-
-## The Secret Life of Walter Mitty
-- Metadata reference: https://en.wikipedia.org/wiki/The_Secret_Life_of_Walter_Mitty_(2013_film)
-- Poster: https://upload.wikimedia.org/wikipedia/en/thumb/f/f2/The_Secret_Life_of_Walter_Mitty_2013_poster.jpg/250px-The_Secret_Life_of_Walter_Mitty_2013_poster.jpg
-
-## Fantastic Mr. Fox
-- Metadata: https://en.wikipedia.org/wiki/Fantastic_Mr._Fox_(film)
-- Poster: https://upload.wikimedia.org/wikipedia/en/a/af/Fantastic_mr_fox.jpg
-- Verified runtime: 87 minutes
 
 ---
 
 # Catalog update — November 7, 2026
 
-Eight replacements and six additions. Earlier poster files have been retained. Mood and intensity are editorial descriptions, not age ratings. Léon uses the theatrical runtime; Project Hail Mary uses the standard runtime.
+Eight replacements and six additions. Unused posters from replaced movies were removed on November 8, 2026; the project contains only the 24 current movie posters. Mood and intensity are editorial descriptions, not age ratings. Léon uses the theatrical runtime; Project Hail Mary uses the standard runtime.
 
 ## Ready or Not (2019)
 - Metadata: https://en.wikipedia.org/wiki/Ready_or_Not_(2019_film)

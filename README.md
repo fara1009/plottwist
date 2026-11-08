@@ -2,7 +2,7 @@
 
 Сайт для выбора кино и планирования киновечера.
 
-**[Открыть сайт](https://gaipovasevara01-source.github.io/plottwist/)**
+**[Открыть сайт](https://fara1009.github.io/plottwist/)**
 
 ## Возможности
 

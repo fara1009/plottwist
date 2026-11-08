@@ -40,7 +40,7 @@
       localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
       return true;
     } catch {
-      toast('Браузер не разрешил сохранение. Изменения доступны до закрытия страницы.');
+      toast('Your browser blocked saving. Changes are available until you close this page.');
       return false;
     }
   }
@@ -59,46 +59,46 @@
       el.setAttribute('aria-pressed', String(saved));
       el.setAttribute(
         'aria-label',
-        (saved ? 'Убрать из списка: ' : 'Добавить в список: ') +
+        (saved ? 'Remove from my list: ' : 'Add to my list: ') +
           (movies.find((m) => m.id === el.dataset.save)?.title || ''),
       );
       if (el.classList.contains('save-button')) el.textContent = saved ? '✓' : '+';
-      else el.textContent = saved ? '✓ В моём списке' : '+ В мой список';
+      else el.textContent = saved ? '✓ In my list' : '+ My list';
     });
   }
   function toggleSave(id) {
     if (!movies.some((m) => m.id === id)) return;
     if (state.list[id]) {
       delete state.list[id];
-      if (persist()) toast('Фильм убран из списка');
+      if (persist()) toast('Movie removed from your list');
     } else {
       state.list[id] = { status: 'watch', rating: 0 };
-      if (persist()) toast('Добавлено в твой список');
+      if (persist()) toast('Added to your list');
     }
     updateCount();
     if (page === 'list') renderList();
   }
   const page = document.body.dataset.page;
   const links = [
-    ['home', 'index.html', 'Главная'],
-    ['quiz', 'quiz.html', 'Квиз'],
-    ['duo', 'together.html', 'Выбираем вдвоём'],
-    ['evening', 'evening.html', 'Киновечер'],
-    ['list', 'my-list.html', 'Мой список'],
+    ['home', 'index.html', 'Home'],
+    ['quiz', 'quiz.html', 'Quiz'],
+    ['duo', 'together.html', 'Choose together'],
+    ['evening', 'evening.html', 'Movie night'],
+    ['list', 'my-list.html', 'My list'],
   ];
   // 2. Общие шапка и подвал на всех пяти страницах.
   function shell() {
     getElement('#site-header').innerHTML = /* HTML */ `
       <div class="container header-inner">
-        <a class="brand" href="index.html" aria-label="PlotTwist — главная">
+        <a class="brand" href="index.html" aria-label="PlotTwist — home">
           <span class="brand-symbol" aria-hidden="true">››</span>
           plot
           <span>twist.</span>
         </a>
         <button class="menu-button" aria-expanded="false" aria-controls="navigation">
-          Меню ☰
+          Menu ☰
         </button>
-        <nav class="navigation" id="navigation" aria-label="Основная навигация">
+        <nav class="navigation" id="navigation" aria-label="Main navigation">
           ${links
             .map(
               ([id, url, title]) => /* HTML */ `
@@ -121,9 +121,9 @@
           plot
           <span>twist.</span>
         </a>
-        <p>Меньше выбирать. Больше смотреть.</p>
-        <p>© ${new Date().getFullYear()} PlotTwist · Учебный проект</p>
-        <a class="footer-link" href="assets/SOURCES.md">Источники постеров и данных ↗</a>
+        <p>Less choosing. More watching.</p>
+        <p>© ${new Date().getFullYear()} PlotTwist · Student project</p>
+        <a class="footer-link" href="assets/SOURCES.md">Poster and data sources ↗</a>
       </div>
     `;
     getElement('.menu-button').addEventListener('click', (e) => {
@@ -143,7 +143,7 @@
     `;
   }
   function meta(m) {
-    return `${m.year} <span aria-hidden="true">·</span> ${m.minutes} мин <span aria-hidden="true">·</span> ${escapeHtml(movieEngine.genres[m.genres[0]])}`;
+    return `${m.year} <span aria-hidden="true">·</span> ${m.minutes} min <span aria-hidden="true">·</span> ${escapeHtml(movieEngine.genres[m.genres[0]])}`;
   }
 
   // Проверенные адреса хранятся в movies.js рядом с данными нужного фильма.
@@ -165,8 +165,8 @@
         target="_blank"
         rel="noopener noreferrer"
       >
-        Смотреть на Rezka ↗
-        <span class="visually-hidden">(откроется в новой вкладке)</span>
+        Watch on Rezka ↗
+        <span class="visually-hidden">(opens in a new tab)</span>
       </a>
     `;
   }
@@ -177,18 +177,18 @@
           class="save-button"
           data-save="${m.id}"
           aria-pressed="false"
-          aria-label="Добавить в список: ${escapeHtml(m.title)}"
+          aria-label="Add to my list: ${escapeHtml(m.title)}"
         >
           +
         </button>
         <button
           class="poster-button"
           data-detail="${m.id}"
-          aria-label="Подробнее: ${escapeHtml(m.title)}"
+          aria-label="Details: ${escapeHtml(m.title)}"
         >
           <img
             src="${m.poster}"
-            alt="Постер фильма «${escapeHtml(m.title)}»"
+            alt="Movie poster: «${escapeHtml(m.title)}»"
             loading="lazy"
             width="400"
             height="600"
@@ -210,26 +210,26 @@
       <section class="hero container">
         <div class="row align-items-center">
           <div class="col-lg-6">
-            <div class="eyebrow">Для вечеров, которые запомнятся</div>
+            <div class="eyebrow">For nights worth remembering</div>
             <h1>
-              Не знаешь,
+              Not sure
               <br />
-              что посмотреть?
+              what to watch?
               <br />
-              <em>Вот это поворот.</em>
+              <em>Here’s your plot twist.</em>
             </h1>
             <p>
-              Найдём фильм под твоё настроение.
+              Find a movie to match your mood.
               <br />
-              В одиночку, вдвоём — и без вечного скролла.
+              Solo or together, without the endless scrolling.
             </p>
             <div class="hero-actions">
               <a href="quiz.html" class="button primary">
-                Найти свой фильм
+                Find my movie
                 <span aria-hidden="true">↗</span>
               </a>
               <a href="together.html" class="button secondary">
-                Выбираем вдвоём
+                Choose together
                 <span aria-hidden="true">♡</span>
               </a>
             </div>
@@ -239,18 +239,18 @@
                 <span>✦</span>
                 <span>☻</span>
               </span>
-              <span>4 вопроса. 1 хороший вечер.</span>
+              <span>4 questions. 1 great evening.</span>
             </div>
           </div>
           <div class="col-lg-6">
-            <div class="hero-cinema" aria-label="Вдохновение для киновечера">
+            <div class="hero-cinema" aria-label="Movie night inspiration">
               ${featured
                 .map(
                   (m) => /* HTML */ `
                     <a
                       class="hero-film"
                       href="evening.html?film=${m.id}"
-                      aria-label="Киновечер с фильмом «${escapeHtml(m.title)}»"
+                      aria-label="Movie night with «${escapeHtml(m.title)}»"
                     >
                       <img
                         src="${m.poster}"
@@ -262,7 +262,7 @@
                   `,
                 )
                 .join('')}
-              <span class="cinema-note">✦ Твой следующий любимый фильм где-то здесь</span>
+              <span class="cinema-note">✦ Your next favorite movie is waiting here</span>
             </div>
           </div>
         </div>
@@ -271,40 +271,40 @@
         <div class="feature-strip">
           <a href="quiz.html">
             <b>✦</b>
-            Квиз по настроению
+            Mood quiz
           </a>
           <a href="together.html">
             <b>♡</b>
-            Совпадение для двоих
+            A match for two
           </a>
           <a href="evening.html">
             <b>◒</b>
-            Готовый вечерний набор
+            Your movie night kit
           </a>
           <a href="my-list.html">
             <b>＋</b>
-            Твоя коллекция
+            Your collection
           </a>
         </div>
       </div>
       <section class="section container" id="catalog">
         <div class="section-head">
           <div>
-            <div class="eyebrow">Выбрали для тебя</div>
-            <h2>Истории, в которые хочется попасть</h2>
+            <div class="eyebrow">Picked for you</div>
+            <h2>Stories to lose yourself in</h2>
           </div>
           <label class="search-box">
-            <span class="visually-hidden">Поиск фильма</span>
-            <input id="movie-search" type="search" placeholder="Найти фильм…" autocomplete="off" />
+            <span class="visually-hidden">Search movies</span>
+            <input id="movie-search" type="search" placeholder="Find a movie…" autocomplete="off" />
           </label>
         </div>
-        <div class="filters" aria-label="Фильтр по настроению">
+        <div class="filters" aria-label="Filter by mood">
           ${[
-            ['all', 'Всё кино'],
-            ['light', 'Легко и весело'],
-            ['wonder', 'Удивиться'],
-            ['tense', 'Поймать интригу'],
-            ['warm', 'Согреться'],
+            ['all', 'All movies'],
+            ['light', 'Light and fun'],
+            ['wonder', 'Be amazed'],
+            ['tense', 'Feel the suspense'],
+            ['warm', 'Feel the warmth'],
           ]
             .map(
               ([id, label]) => /* HTML */ `
@@ -325,27 +325,27 @@
       <section class="curated container">
         <div class="callout">
           <div>
-            <div class="eyebrow" style="margin-bottom:13px">Два вкуса. Один фильм.</div>
-            <h2>«Мне всё равно» больше не вариант.</h2>
-            <p>Ответьте по очереди — найдём историю, которая подойдёт обоим.</p>
+            <div class="eyebrow" style="margin-bottom:13px">Two tastes. One movie.</div>
+            <h2>Move beyond “anything is fine.”</h2>
+            <p>Take turns answering and find a story you will both enjoy.</p>
           </div>
-          <a class="button primary" href="together.html">Найти совпадение ↗</a>
+          <a class="button primary" href="together.html">Find your match ↗</a>
         </div>
       </section>
       <section class="container curated">
-        <div class="section-head"><h2>Перед началом сеанса</h2></div>
+        <div class="section-head"><h2>Before you press play</h2></div>
         ${[
           [
-            'Это онлайн-кинотеатр?',
-            'PlotTwist помогает выбрать фильм и спланировать вечер. Смотреть фильм нужно в доступном тебе кинотеатре или стриминговом сервисе.',
+            'Can I watch movies here?',
+            'PlotTwist helps you choose a movie and plan your evening. Watch your pick at a cinema or on a streaming service available to you.',
           ],
           [
-            'Как работает подбор?',
-            'Сравниваем настроение, жанр, свободное время и эмоциональную нагрузку с характеристиками фильмов. В результатах показываем причины выбора.',
+            'How do recommendations work?',
+            'We match your mood, preferred genre, available time and emotional intensity with each movie. Every recommendation comes with an explanation.',
           ],
           [
-            'Где хранится мой список?',
-            'В этом браузере на этом устройстве. Аккаунт не нужен. Очистка данных браузера удалит сохранённый список.',
+            'Where is my list saved?',
+            'In this browser on this device. No account is needed. Clearing your browser data will delete your saved list.',
           ],
         ]
           .map(
@@ -387,13 +387,13 @@
     renderCatalog();
   }
   function renderCatalog() {
-    const query = getElement('#movie-search').value.trim().toLocaleLowerCase('ru');
+    const query = getElement('#movie-search').value.trim().toLocaleLowerCase('en');
     const filtered = movies.filter(
       (m) =>
         (homeFilter === 'all' || m.moods.includes(homeFilter)) &&
-        `${m.title} ${m.en} ${m.year}`.toLocaleLowerCase('ru').includes(query),
+        `${m.title} ${m.en} ${m.year}`.toLocaleLowerCase('en').includes(query),
     );
-    getElement('#catalog-status').textContent = `В подборке: ${filtered.length}`;
+    getElement('#catalog-status').textContent = `Movies found: ${filtered.length}`;
     getElement('#movie-grid').innerHTML = filtered.length
       ? filtered
           .map(
@@ -405,9 +405,9 @@
       : /* HTML */ `
           <div class="col-12">
             <div class="empty">
-              <h2>Пока ничего не нашлось</h2>
-              <p>Попробуй другое название или настроение.</p>
-              <button class="button secondary" id="reset-search">Сбросить фильтры</button>
+              <h2>No movies found yet</h2>
+              <p>Try another title or mood.</p>
+              <button class="button secondary" id="reset-search">Reset filters</button>
             </div>
           </div>
         `;
@@ -428,46 +428,46 @@
   const questions = [
     {
       key: 'mood',
-      title: 'Какой у тебя сегодня настрой?',
-      hint: 'Выбери ощущение, с которым хочется провести вечер.',
+      title: 'What is your mood today?',
+      hint: 'Choose the feeling you want for your evening.',
       options: [
-        ['light', '☀', 'Легко и весело', 'Хочу отвлечься и улыбнуться'],
-        ['wonder', '✦', 'Хочется удивиться', 'Новые миры и необычные идеи'],
-        ['tense', '◉', 'Нужна интрига', 'Хочу строить догадки'],
-        ['warm', '♡', 'Немного тепла', 'Добрые и человечные истории'],
+        ['light', '☀', 'Light and fun', 'A little escape and a smile'],
+        ['wonder', '✦', 'Ready to be amazed', 'New worlds and unexpected ideas'],
+        ['tense', '◉', 'Craving suspense', 'Keep me guessing'],
+        ['warm', '♡', 'A little warmth', 'Kind, heartfelt stories'],
       ],
     },
     {
       key: 'genre',
-      title: 'К какому жанру тянет?',
-      hint: 'Выбери один любимый или доверься настроению.',
+      title: 'Which genre feels right?',
+      hint: 'Pick a favorite or let your mood decide.',
       options: [
-        ['comedy', '☺', 'Комедия', 'С юмором и характером'],
-        ['scifi', '⌁', 'Фантастика', 'За пределами привычного'],
-        ['thriller', '◇', 'Триллер', 'Загадка до самого конца'],
-        ['animation', '✿', 'Анимация', 'Истории без возрастных границ'],
-        ['romance', '♡', 'Романтика', 'О встречах и чувствах'],
-        ['any', '✦', 'Удивите меня', 'Открыт любым жанрам'],
+        ['comedy', '☺', 'Comedy', 'Humor with personality'],
+        ['scifi', '⌁', 'Sci-fi', 'Beyond the everyday'],
+        ['thriller', '◇', 'Thriller', 'A mystery until the very end'],
+        ['animation', '✿', 'Animation', 'Stories for every age'],
+        ['romance', '♡', 'Romance', 'Connections and feelings'],
+        ['any', '✦', 'Surprise me', 'Open to any genre'],
       ],
     },
     {
       key: 'duration',
-      title: 'Сколько времени есть на фильм?',
-      hint: 'Длительность — обязательное условие подбора.',
+      title: 'How much time do you have?',
+      hint: 'Your time limit is always respected.',
       options: [
-        ['100', '◷', 'До 100 минут', 'Успеть до сна'],
-        ['125', '◴', 'До 125 минут', 'Классический киновечер'],
-        ['any', '∞', 'Время не ограничено', 'Готов погрузиться в историю'],
+        ['100', '◷', 'Up to 100 minutes', 'Just enough before bed'],
+        ['125', '◴', 'Up to 125 minutes', 'A classic movie night'],
+        ['any', '∞', 'No time limit', 'Ready to get lost in a story'],
       ],
     },
     {
       key: 'intensity',
-      title: 'Сколько эмоций тебе комфортно?',
-      hint: 'Это условная нагрузка сюжета, а не возрастной рейтинг.',
+      title: 'How intense should it feel?',
+      hint: 'This describes emotional intensity, not an age rating.',
       options: [
-        ['1', '☁', 'Максимально спокойно', 'Без тяжёлых переживаний'],
-        ['2', '≈', 'Умеренно', 'Можно немного поволноваться'],
-        ['any', 'ϟ', 'Готов к сильным эмоциям', 'Можно и напряжённую историю'],
+        ['1', '☁', 'Keep it gentle', 'No heavy emotions'],
+        ['2', '≈', 'Moderate', 'A little tension is fine'],
+        ['any', 'ϟ', 'Ready for strong emotions', 'An intense story is welcome'],
       ],
     },
   ];
@@ -475,11 +475,11 @@
   function questionnaire(duo) {
     getElement('#main').innerHTML =
       title(
-        duo ? 'Совпадение для двоих' : 'Кино под настроение',
-        duo ? 'Два человека. Одна история.' : 'Что посмотрим сегодня?',
+        duo ? 'A match for two' : 'Movies for your mood',
+        duo ? 'Two people. One story.' : 'What shall we watch today?',
         duo
-          ? 'Ответьте по очереди на четыре вопроса. Мы учтём вкусы обоих и найдём общий вариант.'
-          : 'Никаких бесконечных подборок. Четыре вопроса — и до трёх фильмов с объяснением выбора.',
+          ? 'Take turns answering four questions. We will consider both tastes and find a shared pick.'
+          : 'Four questions, then up to three movies with reasons to watch. Your endless search ends here.',
       ) +
       /* HTML */ `
         <section class="workspace container">
@@ -489,25 +489,25 @@
               <div class="panel aside-panel">
                 <div class="aside-number">${duo ? '02' : '04'}</div>
                 <h2 class="aside-title">
-                  ${duo ? 'Вкус каждого важен' : 'Вопроса до хорошего кино'}
+                  ${duo ? 'Both tastes matter' : 'Questions to a great movie'}
                 </h2>
                 <ul class="aside-list">
                   <li>
-                    <b>Настроение прежде жанра</b>
-                    Учитываем, чего хочется именно сегодня.
+                    <b>Mood comes first</b>
+                    We focus on what you feel like today.
                   </li>
                   <li>
-                    <b>Время имеет значение</b>
-                    Не предлагаем фильмы длиннее выбранного лимита.
+                    <b>Time matters</b>
+                    Every pick fits your chosen time limit.
                   </li>
                   <li>
-                    <b>Никакой магии</b>
-                    Объясняем каждый результат понятными словами.
+                    <b>Clear reasons</b>
+                    We explain every recommendation in plain words.
                   </li>
                 </ul>
                 <p class="fineprint">
-                  Подбор — редакционная рекомендация. Проверь возрастную маркировку перед
-                  просмотром.
+                  These are editorial recommendations. Check the age rating before
+                  watching.
                 </p>
               </div>
             </aside>
@@ -520,34 +520,34 @@
   function namesForm() {
     getElement('#quiz-panel').innerHTML = /* HTML */ `
       <form id="names-form" class="names-form">
-        <div class="eyebrow">Знакомимся</div>
-        <h2 style="margin-top:20px">Кто сегодня выбирает кино?</h2>
+        <div class="eyebrow">Meet your movie partner</div>
+        <h2 style="margin-top:20px">Who is choosing tonight?</h2>
         <p>
-          Вы будете отвечать на одном устройстве. Ответы первого участника не показываются второму.
+          You will answer on the same device. The first person’s answers stay hidden from the second.
         </p>
-        <label class="input-label" for="name-one">Первый участник</label>
+        <label class="input-label" for="name-one">First person</label>
         <input
           class="field"
           id="name-one"
           name="first"
-          placeholder="Например, Алина"
+          placeholder="For example, Alex"
           maxlength="24"
           required
           autocomplete="off"
         />
-        <label class="input-label" for="name-two">Второй участник</label>
+        <label class="input-label" for="name-two">Second person</label>
         <input
           class="field"
           id="name-two"
           name="second"
-          placeholder="Например, Дамир"
+          placeholder="For example, Sam"
           maxlength="24"
           required
           autocomplete="off"
         />
         <p id="names-error" class="form-error" role="alert"></p>
         <button class="button primary" type="submit" style="margin-top:20px">
-          Начать подбор ↗
+          Find a match ↗
         </button>
       </form>
     `;
@@ -556,7 +556,7 @@
       const names = [getElement('#name-one').value.trim(), getElement('#name-two').value.trim()];
       if (names.some((n) => !n)) {
         getElement('#names-error').textContent =
-          'Введите имя или короткий псевдоним каждого участника.';
+          'Enter a name or short nickname for each person.';
         return;
       }
       quizState = { step: 0, person: 0, answers: [{}, {}], names };
@@ -579,10 +579,10 @@
     getElement('#quiz-panel').innerHTML = `${
       duo
         ? /* HTML */ `
-            <div class="duo-badge">Отвечает ${escapeHtml(quizState.names[quizState.person])}</div>
+            <div class="duo-badge">Your turn, ${escapeHtml(quizState.names[quizState.person])}</div>
           `
         : ''
-    }<div class="step-label"><span>${duo ? 'Участник ' + (quizState.person + 1) + ' из 2' : 'Твой кинопрофиль'}</span><span>Вопрос ${quizState.step + 1} / 4</span></div><div class="progress-track" aria-label="Прогресс: ${quizState.step + 1} из 4"><div class="progress-fill" style="width:${(quizState.step + 1) * 25}%"></div></div><h2 class="question-title">${q.title}</h2><p class="question-hint">${q.hint}</p><div class="option-grid" role="group" aria-label="Варианты ответа">${q.options
+    }<div class="step-label"><span>${duo ? 'Person ' + (quizState.person + 1) + ' of 2' : 'Your movie profile'}</span><span>Question ${quizState.step + 1} / 4</span></div><div class="progress-track" aria-label="Progress: ${quizState.step + 1} of 4"><div class="progress-fill" style="width:${(quizState.step + 1) * 25}%"></div></div><h2 class="question-title">${q.title}</h2><p class="question-hint">${q.hint}</p><div class="option-grid" role="group" aria-label="Answer options">${q.options
       .map(
         ([value, icon, name, sub]) => /* HTML */ `
           <button
@@ -600,7 +600,7 @@
       )
       .join(
         '',
-      )}</div><div class="question-nav"><button class="text-button" id="previous" ${quizState.step === 0 ? 'disabled' : ''}>← Назад</button><button class="button primary" id="next" ${!answer ? 'disabled' : ''}>${quizState.step < 3 ? 'Дальше →' : duo && quizState.person === 0 ? 'Передать устройство →' : 'Показать фильмы ↗'}</button></div>`;
+      )}</div><div class="question-nav"><button class="text-button" id="previous" ${quizState.step === 0 ? 'disabled' : ''}>← Back</button><button class="button primary" id="next" ${!answer ? 'disabled' : ''}>${quizState.step < 3 ? 'Next →' : duo && quizState.person === 0 ? 'Pass the device →' : 'Show movies ↗'}</button></div>`;
     getElements('[data-answer]').forEach(
       (el) =>
         (el.onclick = () => {
@@ -628,14 +628,14 @@
         getElement('#quiz-panel').innerHTML = /* HTML */ `
           <div class="empty" style="border:0">
             <div class="empty-symbol">♡</div>
-            <h2>${escapeHtml(quizState.names[0])}, ответы приняты.</h2>
+            <h2>${escapeHtml(quizState.names[0])}, your answers are in.</h2>
             <p>
-              Передай устройство участнику «${escapeHtml(quizState.names[1])}».
+              Pass the device to «${escapeHtml(quizState.names[1])}».
               <br />
-              Теперь его очередь выбрать настроение.
+              It is their turn to choose a mood.
             </p>
             <button id="second-person" class="button primary">
-              Я ${escapeHtml(quizState.names[1])}, начинаем →
+              I’m ${escapeHtml(quizState.names[1])}, let’s start →
             </button>
           </div>
         `;
@@ -656,11 +656,11 @@
             class="poster-button"
             style="aspect-ratio:3/2;border-radius:0"
             data-detail="${m.id}"
-            aria-label="Подробнее: ${escapeHtml(m.title)}"
+            aria-label="Details: ${escapeHtml(m.title)}"
           >
             <img
               src="${m.poster}"
-              alt="Постер фильма «${escapeHtml(m.title)}»"
+              alt="Movie poster: «${escapeHtml(m.title)}»"
               width="400"
               height="300"
             />
@@ -673,8 +673,8 @@
             <p>${escapeHtml(m.description)}</p>
             ${watchLink(m, true)}
             <div class="result-actions">
-              <a class="button primary small" href="evening.html?film=${m.id}">Собрать вечер ↗</a>
-              <button class="button secondary small" data-save="${m.id}">+ В мой список</button>
+              <a class="button primary small" href="evening.html?film=${m.id}">Plan movie night ↗</a>
+              <button class="button secondary small" data-save="${m.id}">+ My list</button>
             </div>
           </div>
         </article>
@@ -694,17 +694,17 @@
     }
     getElement('#main').innerHTML =
       title(
-        duo ? 'Ваш общий киновечер' : 'Твой результат',
+        duo ? 'Your movie night together' : 'Your results',
         duo
           ? `${escapeHtml(quizState.names[0])} + ${escapeHtml(quizState.names[1])}`
-          : 'Кажется, это твоё кино.',
+          : 'This could be your next favorite.',
         duo
           ? exact
-            ? 'Нашлось точное совпадение по вашим предпочтениям.'
-            : 'Это варианты для компромисса: время и допустимая нагрузка соблюдены, вкусы учтены настолько, насколько позволяет подборка.'
+            ? 'We found an exact match for both of your preferences.'
+            : 'These are compromise picks. They respect both time and intensity limits and match your tastes as closely as the catalog allows.'
           : exact
-            ? 'Подходят по всем выбранным условиям.'
-            : 'Учли время и комфортную нагрузку. По настроению или жанру некоторые варианты могут быть близкими альтернативами.',
+            ? 'These movies match all your preferences.'
+            : 'Every pick fits your time and intensity limits. Some are close alternatives for your mood or genre.',
       ) +
       /* HTML */ `
         <section class="workspace container">
@@ -731,18 +731,18 @@
                       reason,
                       duo
                         ? isExact
-                          ? 'Точное совпадение'
-                          : 'Общий вариант'
+                          ? 'Exact match'
+                          : 'Shared pick'
                         : i === 0
-                          ? 'Начни с этого'
-                          : 'Ещё одна история',
+                          ? 'Start here'
+                          : 'Another story',
                     );
                   })
                   .join('')
-              : '<div class="col-12"><div class="empty"><h2>Пока нет фильма под все ограничения</h2><p>Попробуйте увеличить время или изменить допустимую нагрузку.</p></div></div>'}
+              : '<div class="col-12"><div class="empty"><h2>No movie fits all your limits yet</h2><p>Try allowing more time or adjusting your intensity limit.</p></div></div>'}
           </div>
           <button id="restart" class="button secondary" style="margin-top:30px">
-            ↻ Пройти ещё раз
+            ↻ Try again
           </button>
         </section>
       `;
@@ -759,17 +759,17 @@
     if (!movies.some((m) => m.id === requested)) requested = state.evening?.film || movies[0].id;
     getElement('#main').innerHTML =
       title(
-        'Сеанс начинается здесь',
-        'Фильм — только начало вечера.',
-        'Выбери историю, а мы соберём к ней закуску, атмосферу и небольшой план. Всё, чтобы просто нажать «play».',
+        'Your movie night starts here',
+        'The movie is just the beginning.',
+        'Pick a story and we will add a snack, set the mood and make a simple plan. All you need to do is press play.',
       ) +
       /* HTML */ `
         <section class="workspace container">
           <div class="row g-4">
             <div class="col-lg-4">
               <form class="panel" id="evening-form">
-                <h2 class="aside-title">Твой киновечер</h2>
-                <label class="input-label" for="evening-film">Что смотрим?</label>
+                <h2 class="aside-title">Your movie night</h2>
+                <label class="input-label" for="evening-film">What are we watching?</label>
                 <select class="field" id="evening-film" name="film">
                   ${movies
                     .map(
@@ -781,20 +781,20 @@
                     )
                     .join('')}
                 </select>
-                <label class="input-label" for="people">Сколько вас?</label>
+                <label class="input-label" for="people">How many people?</label>
                 <select class="field" id="people" name="people">
-                  <option value="1">Один человек</option>
-                  <option value="2">Двое</option>
-                  <option value="3">Трое</option>
-                  <option value="4">Четверо</option>
+                  <option value="1">One person</option>
+                  <option value="2">Two people</option>
+                  <option value="3">Three people</option>
+                  <option value="4">Four people</option>
                 </select>
-                <label class="input-label" for="snack">Что хочется к фильму?</label>
+                <label class="input-label" for="snack">What are you craving?</label>
                 <select class="field" id="snack" name="snack">
-                  <option value="salty">Что-нибудь солёное</option>
-                  <option value="sweet">Что-нибудь сладкое</option>
-                  <option value="fresh">Фрукты и свежесть</option>
+                  <option value="salty">Something savory</option>
+                  <option value="sweet">Something sweet</option>
+                  <option value="fresh">Fresh fruit</option>
                 </select>
-                <label class="input-label" for="start-time">Когда начинаем готовиться?</label>
+                <label class="input-label" for="start-time">When does prep start?</label>
                 <input
                   class="field"
                   id="start-time"
@@ -804,10 +804,10 @@
                   required
                 />
                 <button class="button primary" type="submit" style="width:100%;margin-top:25px">
-                  Собрать мой вечер ↗
+                  Plan my evening ↗
                 </button>
                 <p class="fineprint" style="margin:17px 0 0">
-                  15 минут на подготовку, затем фильм. Время указано по твоим часам.
+                  15 minutes to get ready, then the movie. Times follow your local clock.
                 </p>
                 <p id="evening-message" class="fineprint" role="status"></p>
               </form>
@@ -834,8 +834,8 @@
       const saved = persist();
       renderEvening();
       getElement('#evening-message').textContent = saved
-        ? 'Набор сохранён в этом браузере.'
-        : 'Набор собран. Сохранить в этом браузере не удалось.';
+        ? 'Your kit is saved in this browser.'
+        : 'Your kit is ready, but could not be saved in this browser.';
     };
     if (state.evening && state.evening.film === requested) renderEvening();
     else previewEvening(requested);
@@ -848,7 +848,7 @@
         <div class="evening-card">
           <img src="${m.poster}" alt="${escapeHtml(m.title)}" width="115" height="172" />
           <div>
-            <div class="eyebrow">Сегодня в главной роли</div>
+            <div class="eyebrow">Tonight’s starring role</div>
             <h3 style="margin-top:15px">${escapeHtml(m.title)}</h3>
             <p>${meta(m)}</p>
             <p>${escapeHtml(m.description)}</p>
@@ -857,8 +857,8 @@
         </div>
         <div class="empty" style="margin-top:25px">
           <div class="empty-symbol">◒</div>
-          <h2>Добавим вечеру деталей?</h2>
-          <p>Укажи компанию, закуску и время — соберём всё в одном месте.</p>
+          <h2>Make the evening your own?</h2>
+          <p>Choose your company, snack and start time. We will bring it all together.</p>
         </div>
       </div>
     `;
@@ -870,51 +870,51 @@
     const n = kit.people;
     let snack, ingredients, instruction;
     if (kit.snack === 'sweet') {
-      snack = 'Йогуртовые стаканчики с ягодами';
+      snack = 'Berry yogurt cups';
       ingredients = [
-        `${n * 150} г натурального йогурта`,
-        `${n * 80} г ягод`,
-        `${n * 25} г гранолы`,
+        `${n * 150} g plain yogurt`,
+        `${n * 80} g berries`,
+        `${n * 25} g granola`,
       ];
-      instruction = 'Выложи в стакан слоями йогурт, ягоды и гранолу. Сладость добавь по вкусу.';
+      instruction = 'Layer yogurt, berries and granola in a glass. Sweeten to taste.';
     } else if (kit.snack === 'fresh') {
-      snack = 'Фруктовая тарелка';
-      ingredients = [`Яблоки: ${n} шт.`, `Бананы: ${n} шт.`, `${n * 100} г винограда`];
-      instruction = 'Вымой фрукты, нарежь удобными кусочками и разложи по небольшим тарелкам.';
+      snack = 'Fresh fruit platter';
+      ingredients = [`Apples: ${n}`, `Bananas: ${n}`, `${n * 100} g grapes`];
+      instruction = 'Wash the fruit, cut into bite-sized pieces and serve on small plates.';
     } else {
-      snack = 'Попкорн с паприкой';
+      snack = 'Paprika popcorn';
       ingredients = [
-        `${n * 35} г зёрен для попкорна`,
-        `${n} ч. л. растительного масла`,
-        'Соль и паприка по вкусу',
+        `${n * 35} g popcorn kernels`,
+        `${n} tsp vegetable oil`,
+        'Salt and paprika to taste',
       ];
       instruction =
-        'Приготовь попкорн по инструкции на упаковке. Готовый попкорн приправь солью и паприкой.';
+        'Make the popcorn according to the package instructions. Season with salt and paprika.';
     }
     const atmos = m.moods.includes('tense')
       ? [
-          'Кинотеатр дома',
-          'Приглуши верхний свет, оставь мягкий источник света сбоку. Убери уведомления, чтобы не пропустить подсказки.',
+          'Your home cinema',
+          'Dim the overhead lights and leave a soft light to one side. Silence notifications so you catch every clue.',
         ]
       : m.moods.includes('warm')
         ? [
-            'Тёплый свет и мягкий плед',
-            'Включи тёплую лампу, устройся поудобнее и оставь под рукой любимый напиток.',
+            'Warm light and a cozy blanket',
+            'Turn on a warm lamp, get comfortable and keep your favorite drink nearby.',
           ]
         : m.moods.includes('wonder')
           ? [
-              'Маленькое путешествие',
-              'Сделай свет мягче, проверь звук и дай истории всё своё внимание.',
+              'A little adventure',
+              'Soften the lights, check the sound and give the story your full attention.',
             ]
           : [
-              'Легко и непринуждённо',
-              'Мягкий свет, удобные места и закуски в отдельных мисках — можно просто расслабиться.',
+              'Easy and relaxed',
+              'Soft light, comfortable seats and individual snack bowls. Just settle in and relax.',
             ];
     const checklist = [
       ...ingredients,
-      'Подготовить воду или напитки',
-      'Настроить свет и звук',
-      'Отключить уведомления',
+      'Get water or drinks ready',
+      'Set up the lights and sound',
+      'Silence notifications',
     ];
     const checked = Array.isArray(kit.checked) ? kit.checked : [];
     getElement('#evening-output').innerHTML = /* HTML */ `
@@ -922,11 +922,11 @@
         <div class="evening-card">
           <img src="${m.poster}" alt="${escapeHtml(m.title)}" width="115" height="172" />
           <div>
-            <div class="eyebrow">Твой вечерний набор</div>
+            <div class="eyebrow">Your movie night kit</div>
             <h3 style="margin-top:15px">${escapeHtml(m.title)}</h3>
             <p>${meta(m)}</p>
             <div class="result-actions">
-              <button class="button secondary small" data-save="${m.id}">+ В мой список</button>
+              <button class="button secondary small" data-save="${m.id}">+ My list</button>
               ${watchLink(m, true)}
             </div>
           </div>
@@ -936,7 +936,7 @@
             <span aria-hidden="true">◒</span>
             ${snack}
           </h3>
-          <p>На ${['', 'одного', 'двоих', 'троих', 'четверых'][n]}. ${instruction}</p>
+          <p>Serves ${['', 'one', 'two', 'three', 'four'][n]}. ${instruction}</p>
           <ul class="check-list">
             ${checklist
               .map(
@@ -956,7 +956,7 @@
               .join('')}
           </ul>
           <p class="fineprint" style="margin-top:12px">
-            Состав и количество можно изменить под свои предпочтения.
+            Adjust the ingredients and quantities to suit your preferences.
           </p>
         </div>
         <div class="kit-block">
@@ -969,20 +969,20 @@
         <div class="kit-block">
           <h3>
             <span aria-hidden="true">◷</span>
-            Без спешки, по плану
+            A plan with time to unwind
           </h3>
           <ol class="timeline">
             <li>
               <time>${movieEngine.clock(kit.start, 0)}</time>
-              <span>Готовим закуску и устраиваемся</span>
+              <span>Prepare your snack and settle in</span>
             </li>
             <li>
               <time>${movieEngine.clock(kit.start, 15)}</time>
-              <span>Начинаем смотреть «${escapeHtml(m.title)}»</span>
+              <span>Start watching «${escapeHtml(m.title)}»</span>
             </li>
             <li>
               <time>${movieEngine.clock(kit.start, 15 + m.minutes)}</time>
-              <span>Титры. Обсудим любимый момент?</span>
+              <span>Credits roll. What was your favorite moment?</span>
             </li>
           </ol>
         </div>
@@ -1004,18 +1004,18 @@
   function list() {
     getElement('#main').innerHTML =
       title(
-        'Твоя коллекция',
-        'Хорошее кино не потеряется.',
-        'Сохраняй находки, отмечай просмотренное и оставляй свою оценку. Этот список хранится только в твоём браузере.',
+        'Your collection',
+        'Keep good movies close.',
+        'Save your discoveries, mark what you have watched and add your ratings. Your list lives only in this browser.',
       ) +
       /* HTML */ `
         <section class="workspace container">
           <div id="list-stats"></div>
           <div class="filters">
             ${[
-              ['all', 'Все фильмы'],
-              ['watch', 'Хочу посмотреть'],
-              ['watched', 'Просмотрено'],
+              ['all', 'All movies'],
+              ['watch', 'Want to watch'],
+              ['watched', 'Watched'],
             ]
               .map(
                 ([id, t]) => /* HTML */ `
@@ -1056,15 +1056,15 @@
       <div class="stats">
         <div class="stat">
           <b>${all.length}</b>
-          <span>В коллекции</span>
+          <span>In your collection</span>
         </div>
         <div class="stat">
           <b>${all.length - viewed.length}</b>
-          <span>Ждут своего вечера</span>
+          <span>Waiting for movie night</span>
         </div>
         <div class="stat">
           <b>${viewed.length}</b>
-          <span>Уже посмотрели</span>
+          <span>Already watched</span>
         </div>
       </div>
     `;
@@ -1078,7 +1078,7 @@
                   class="poster-button"
                   data-detail="${m.id}"
                   style="width:auto;flex-shrink:0;border-radius:6px"
-                  aria-label="Подробнее: ${escapeHtml(m.title)}"
+                  aria-label="Details: ${escapeHtml(m.title)}"
                 >
                   <img src="${m.poster}" alt="${escapeHtml(m.title)}" width="80" height="120" />
                 </button>
@@ -1087,25 +1087,25 @@
                   <p>${meta(m)}</p>
                   <div class="list-controls">
                     <label class="list-label">
-                      Статус
-                      <select data-status="${m.id}" aria-label="Статус: ${escapeHtml(m.title)}">
+                      Status
+                      <select data-status="${m.id}" aria-label="Status: ${escapeHtml(m.title)}">
                         <option value="watch" ${item.status === 'watch' ? 'selected' : ''}>
-                          Хочу посмотреть
+                          Want to watch
                         </option>
                         <option value="watched" ${item.status === 'watched' ? 'selected' : ''}>
-                          Просмотрено
+                          Watched
                         </option>
                       </select>
                     </label>
                     ${item.status === 'watched'
                       ? /* HTML */ `
                           <label class="list-label">
-                            Моя оценка
+                            My rating
                             <select
                               data-rating="${m.id}"
-                              aria-label="Моя оценка: ${escapeHtml(m.title)}"
+                              aria-label="My rating: ${escapeHtml(m.title)}"
                             >
-                              <option value="0">Без оценки</option>
+                              <option value="0">Not rated</option>
                               ${[1, 2, 3, 4, 5]
                                 .map(
                                   (v) => /* HTML */ `
@@ -1124,14 +1124,14 @@
                       class="button secondary small"
                       style="align-self:end"
                     >
-                      Киновечер ↗
+                      Movie night ↗
                     </a>
                   </div>
                 </div>
                 <button
                   class="text-button"
                   data-remove="${m.id}"
-                  aria-label="Убрать из списка: ${escapeHtml(m.title)}"
+                  aria-label="Remove from my list: ${escapeHtml(m.title)}"
                 >
                   ×
                 </button>
@@ -1144,15 +1144,15 @@
             <div class="empty-symbol">＋</div>
             <h2>
               ${all.length
-                ? 'В этой части списка пока пусто'
-                : 'Твоя следующая история ещё впереди'}
+                ? 'This part of your list is empty'
+                : 'Your next story is waiting'}
             </h2>
             <p>
               ${all.length
-                ? 'Измени фильтр или отметь статус сохранённого фильма.'
-                : 'Нажми «+» на карточке фильма, чтобы сохранить его здесь.'}
+                ? 'Change the filter or update a saved movie’s status.'
+                : 'Tap “+” on a movie card to save it here.'}
             </p>
-            <a class="button primary" href="index.html#catalog">Выбрать фильм ↗</a>
+            <a class="button primary" href="index.html#catalog">Choose a movie ↗</a>
           </div>
         `;
     getElements('[data-status]').forEach(
@@ -1167,7 +1167,7 @@
       (el) =>
         (el.onchange = () => {
           state.list[el.dataset.rating].rating = Number(el.value);
-          if (persist()) toast('Оценка сохранена');
+          if (persist()) toast('Rating saved');
         }),
     );
     getElements('[data-remove]').forEach(
@@ -1181,33 +1181,33 @@
     if (!m) return;
     const dialog = getElement('#movie-dialog');
     dialog.innerHTML = /* HTML */ `
-      <button class="dialog-close" aria-label="Закрыть подробности">×</button>
+      <button class="dialog-close" aria-label="Close details">×</button>
       <div class="dialog-content">
         <div class="row g-4">
           <div class="col-md-4">
             <img
               class="dialog-poster"
               src="${m.poster}"
-              alt="Постер фильма «${escapeHtml(m.title)}»"
+              alt="Movie poster: «${escapeHtml(m.title)}»"
               width="400"
               height="600"
             />
           </div>
           <div class="col-md-8">
-            <div class="eyebrow">История без спойлеров</div>
+            <div class="eyebrow">The story, without spoilers</div>
             <h2 id="dialog-title" style="margin:16px 0 6px">${escapeHtml(m.title)}</h2>
-            <p class="movie-meta">${escapeHtml(m.en)} · ${m.year} · ${m.minutes} мин</p>
+            <p class="movie-meta">${escapeHtml(m.en)} · ${m.year} · ${m.minutes} min</p>
             <p class="dialog-description">${escapeHtml(m.description)}</p>
             <p class="movie-tag">
               ${m.genres.map((g) => escapeHtml(movieEngine.genres[g])).join(' / ')}
             </p>
             <p class="fineprint">
-              Нагрузка: ${['', 'лёгкая', 'умеренная', 'высокая'][m.intensity]}. Проверь возрастную
-              маркировку в своём сервисе.
+              Intensity: ${['', 'gentle', 'moderate', 'high'][m.intensity]}. Check the age
+              rating on your viewing service.
             </p>
             <div class="result-actions">
-              <a href="evening.html?film=${m.id}" class="button primary">Собрать вечер ↗</a>
-              <button class="button secondary" data-save="${m.id}">+ В мой список</button>
+              <a href="evening.html?film=${m.id}" class="button primary">Plan movie night ↗</a>
+              <button class="button secondary" data-save="${m.id}">+ My list</button>
               ${watchLink(m)}
             </div>
           </div>
@@ -1243,7 +1243,7 @@
   shell();
   if (!movies.length) {
     getElement('#main').innerHTML =
-      '<div class="empty"><h1>Не удалось загрузить подборку</h1><p>Обнови страницу или проверь, что папка assets находится рядом с HTML-файлами.</p></div>';
+      '<div class="empty"><h1>Could not load the catalog</h1><p>Refresh the page or check that the assets folder is beside the HTML files.</p></div>';
     return;
   }
   if (page === 'home') home();
@@ -1252,5 +1252,5 @@
   else if (page === 'evening') evening();
   else if (page === 'list') list();
   updateCount();
-  if (storageWarning) toast('Сохранённые данные недоступны. Можно начать новый список.');
+  if (storageWarning) toast('Saved data is unavailable. You can start a new list.');
 })();

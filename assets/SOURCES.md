@@ -1,102 +1,102 @@
-# PlotTwist — источники каталога
+# PlotTwist — catalog sources
 
-Названия, годы выпуска и продолжительность проверены по страницам фильмов ниже. Теги настроения, интенсивность и краткие описания — редакционная разметка проекта; они не являются возрастным рейтингом. Постеры принадлежат соответствующим правообладателям и сохранены локально для учебного прототипа.
+Titles, release years and runtimes were checked against the movie pages below. Mood tags, intensity levels and short descriptions are editorial content created for this project; they are not age ratings. Posters belong to their respective rights holders and are stored locally for this educational prototype.
 
-## Достать ножи
+## Knives Out
 - Metadata: https://en.wikipedia.org/wiki/Knives_Out
 - Poster: https://thumb.wikimedia.org/wikipedia/en/thumb/1/1f/Knives_Out_poster.jpeg/250px-Knives_Out_poster.jpeg?utm_source=en.wikipedia.org&utm_campaign=parser&utm_content=thumbnail
 - Verified runtime: 130 minutes
 
-## Отель «Гранд Будапешт»
+## The Grand Budapest Hotel
 - Metadata: https://en.wikipedia.org/wiki/The_Grand_Budapest_Hotel
 - Poster: https://upload.wikimedia.org/wikipedia/en/1/1c/The_Grand_Budapest_Hotel.png?utm_source=en.wikipedia.org&utm_campaign=parser&utm_content=thumbnail_unscaled
 - Verified runtime: 100 minutes
 
-## Интерстеллар
+## Interstellar
 - Metadata: https://en.wikipedia.org/wiki/Interstellar_(film)
 - Poster: https://upload.wikimedia.org/wikipedia/en/b/bc/Interstellar_film_poster.jpg?utm_source=en.wikipedia.org&utm_campaign=parser&utm_content=thumbnail_unscaled
 - Verified runtime: 169 minutes
 
-## Приключения Паддингтона 2
+## Paddington 2
 - Metadata: https://en.wikipedia.org/wiki/Paddington_2
 - Poster: https://thumb.wikimedia.org/wikipedia/en/thumb/b/b6/Paddington_2_poster.jpg/250px-Paddington_2_poster.jpg?utm_source=en.wikipedia.org&utm_campaign=parser&utm_content=thumbnail
 - Verified runtime: 104 minutes
 
-## Начало
+## Inception
 - Metadata: https://en.wikipedia.org/wiki/Inception
 - Poster: https://upload.wikimedia.org/wikipedia/en/2/2e/Inception_%282010%29_theatrical_poster.jpg?utm_source=en.wikipedia.org&utm_campaign=parser&utm_content=thumbnail_unscaled
 - Verified runtime: 148 minutes
 
-## Амели
+## Amélie
 - Metadata: https://en.wikipedia.org/wiki/Am%C3%A9lie
 - Poster: https://upload.wikimedia.org/wikipedia/en/5/53/Amelie_poster.jpg?utm_source=en.wikipedia.org&utm_campaign=parser&utm_content=thumbnail_unscaled
 - Verified runtime: 123 minutes
 
-## Шоу Трумана
+## The Truman Show
 - Metadata: https://en.wikipedia.org/wiki/The_Truman_Show
 - Poster: https://upload.wikimedia.org/wikipedia/en/c/cd/Trumanshow.jpg
 - Verified runtime: 103 minutes
 
-## Душа
+## Soul
 - Metadata: https://en.wikipedia.org/wiki/Soul_(2020_film)
 - Poster: https://upload.wikimedia.org/wikipedia/en/3/39/Soul_%282020_film%29_poster.jpg
 - Verified runtime: 101 minutes
 
-## ВАЛЛ·И
+## WALL·E
 - Metadata: https://en.wikipedia.org/wiki/WALL-E
 - Poster: https://thumb.wikimedia.org/wikipedia/en/thumb/4/4c/WALL-E_poster.jpg/250px-WALL-E_poster.jpg?utm_source=en.wikipedia.org&utm_campaign=parser&utm_content=thumbnail
 - Verified runtime: 98 minutes
 
-## Маленькая мисс Счастье
+## Little Miss Sunshine
 - Metadata: https://en.wikipedia.org/wiki/Little_Miss_Sunshine
 - Poster: https://upload.wikimedia.org/wikipedia/en/1/16/Little_miss_sunshine_poster.jpg
 - Verified runtime: 102 minutes
 
-## Назад в будущее
+## Back to the Future
 - Metadata: https://en.wikipedia.org/wiki/Back_to_the_Future
 - Poster: https://thumb.wikimedia.org/wikipedia/en/thumb/d/d2/Back_to_the_Future.jpg/250px-Back_to_the_Future.jpg?utm_source=en.wikipedia.org&utm_campaign=parser&utm_content=thumbnail
 - Verified runtime: 116 minutes
 
-## Ла-Ла Ленд
+## La La Land
 - Metadata: https://en.wikipedia.org/wiki/La_La_Land
 - Poster: https://thumb.wikimedia.org/wikipedia/en/thumb/a/ab/La_La_Land_%28film%29.png/250px-La_La_Land_%28film%29.png?utm_source=en.wikipedia.org&utm_campaign=parser&utm_content=thumbnail
 - Verified runtime: 128 minutes
 
-## Бойфренд из будущего
+## About Time
 - Metadata: https://en.wikipedia.org/wiki/About_Time_(2013_film)
 - Poster: https://upload.wikimedia.org/wikipedia/en/7/7c/About_Time_%282013_film%29_Poster.jpg
 - Verified runtime: 123 minutes
 
-## Прибытие
+## Arrival
 - Metadata: https://en.wikipedia.org/wiki/Arrival_(film)
 - Poster: https://upload.wikimedia.org/wikipedia/en/d/df/Arrival%2C_Movie_Poster.jpg?utm_source=en.wikipedia.org&utm_campaign=parser&utm_content=thumbnail_unscaled
 - Verified runtime: 116 minutes
 
-## Рататуй
+## Ratatouille
 - Metadata reference: https://en.wikipedia.org/wiki/Ratatouille_(film)
 - Poster: https://upload.wikimedia.org/wikipedia/en/thumb/5/50/RatatouillePoster.jpg/250px-RatatouillePoster.jpg
 
-## Марсианин
+## The Martian
 - Metadata: https://en.wikipedia.org/wiki/The_Martian_(film)
 - Poster: https://upload.wikimedia.org/wikipedia/en/c/cd/The_Martian_film_poster.jpg
 - Verified runtime: 142 minutes
 
-## Невероятная жизнь Уолтера Митти
+## The Secret Life of Walter Mitty
 - Metadata reference: https://en.wikipedia.org/wiki/The_Secret_Life_of_Walter_Mitty_(2013_film)
 - Poster: https://upload.wikimedia.org/wikipedia/en/thumb/f/f2/The_Secret_Life_of_Walter_Mitty_2013_poster.jpg/250px-The_Secret_Life_of_Walter_Mitty_2013_poster.jpg
 
-## Бесподобный мистер Фокс
+## Fantastic Mr. Fox
 - Metadata: https://en.wikipedia.org/wiki/Fantastic_Mr._Fox_(film)
 - Poster: https://upload.wikimedia.org/wikipedia/en/a/af/Fantastic_mr_fox.jpg
 - Verified runtime: 87 minutes
 
 ---
 
-# Обновление каталога — 7 ноября 2026
+# Catalog update — November 7, 2026
 
-Восемь замен и шесть добавлений. Предыдущие файлы постеров сохранены. Настроения и интенсивность — редакционные характеристики, не возрастные рейтинги. Для «Леона» указана театральная версия; для Project Hail Mary — стандартная версия.
+Eight replacements and six additions. Earlier poster files have been retained. Mood and intensity are editorial descriptions, not age ratings. Léon uses the theatrical runtime; Project Hail Mary uses the standard runtime.
 
-## Я иду искать (2019)
+## Ready or Not (2019)
 - Metadata: https://en.wikipedia.org/wiki/Ready_or_Not_(2019_film)
 - Poster: https://upload.wikimedia.org/wikipedia/en/7/7b/Ready_or_Not_2019_film_poster.jpg
 - Catalog runtime: 95 min
@@ -108,73 +108,73 @@
 - Catalog runtime: 118 min
 - Verified runtime: 118 min
 
-## Ночь в музее (2006)
+## Night at the Museum (2006)
 - Metadata: https://en.wikipedia.org/wiki/Night_at_the_Museum
 - Poster: https://thumb.wikimedia.org/wikipedia/en/thumb/3/34/Night_at_the_Museum_poster.jpg/250px-Night_at_the_Museum_poster.jpg
 - Catalog runtime: 108 min
 - Verified runtime: 108 min
 
-## Гордость и предубеждение (2005)
+## Pride & Prejudice (2005)
 - Metadata: https://en.wikipedia.org/wiki/Pride_%26_Prejudice_(2005_film)
 - Poster: https://upload.wikimedia.org/wikipedia/en/0/03/Prideandprejudiceposter.jpg
 - Catalog runtime: 127 min
 - Verified runtime: 127 min
 
-## Коралина в Стране Кошмаров (2009)
+## Coraline (2009)
 - Metadata: https://en.wikipedia.org/wiki/Coraline_(film)
 - Poster: https://thumb.wikimedia.org/wikipedia/en/thumb/3/36/Coraline_poster.jpg/250px-Coraline_poster.jpg
 - Catalog runtime: 100 min
 - Verified runtime: 100 min
 
-## Дивергент (2014)
+## Divergent (2014)
 - Metadata: https://en.wikipedia.org/wiki/Divergent_(film)
 - Poster: https://thumb.wikimedia.org/wikipedia/en/thumb/7/7e/Divergent_film_poster.jpg/250px-Divergent_film_poster.jpg
 - Catalog runtime: 139 min
 - Verified runtime: 139 min
 
-## Проект «Конец света» (2026)
+## Project Hail Mary (2026)
 - Metadata: https://en.wikipedia.org/wiki/Project_Hail_Mary_(film)
 - Poster: https://thumb.wikimedia.org/wikipedia/en/thumb/3/3b/Project_Hail_Mary_poster.jpg/250px-Project_Hail_Mary_poster.jpg
 - Catalog runtime: 156 min
 - Verified runtime: 156 min
 
-## В погоне за счастьем (2006)
+## The Pursuit of Happyness (2006)
 - Metadata: https://en.wikipedia.org/wiki/The_Pursuit_of_Happyness
 - Poster: https://thumb.wikimedia.org/wikipedia/en/thumb/8/81/Poster-pursuithappyness.jpg/250px-Poster-pursuithappyness.jpg
 - Catalog runtime: 117 min
 - Verified runtime: 117 min
 
-## Голодные игры (2012)
+## The Hunger Games (2012)
 - Metadata: https://en.wikipedia.org/wiki/The_Hunger_Games_(film)
 - Poster: https://upload.wikimedia.org/wikipedia/en/4/42/HungerGamesPoster.jpg
 - Catalog runtime: 142 min
 - Verified runtime: 142 min
 
-## Мой сосед Тоторо (1988)
+## My Neighbor Totoro (1988)
 - Metadata: https://en.wikipedia.org/wiki/My_Neighbor_Totoro
 - Poster: https://thumb.wikimedia.org/wikipedia/en/thumb/0/02/My_Neighbor_Totoro_-_Tonari_no_Totoro_%28Movie_Poster%29.jpg/250px-My_Neighbor_Totoro_-_Tonari_no_Totoro_%28Movie_Poster%29.jpg
 - Catalog runtime: 86 min
 - Verified runtime: 86 min (Studio Ghibli: https://www.ghibli.jp/works/totoro/)
 
-## Балерина (2016)
+## Ballerina (2016)
 - Metadata: https://en.wikipedia.org/wiki/Ballerina_(2016_film)
 - Poster: https://upload.wikimedia.org/wikipedia/en/d/da/Ballerina_%282016_film%29.png
 - Catalog runtime: 89 min
 - Verified runtime: 89 min
 
-## Леон (1994)
+## Léon: The Professional (1994)
 - Metadata: https://en.wikipedia.org/wiki/L%C3%A9on:_The_Professional
 - Poster: https://upload.wikimedia.org/wikipedia/en/0/03/Leon-poster.jpg
 - Catalog runtime: 110 min
 - Verified runtime: 110 min
 
-## Ангелы Чарли (2000)
+## Charlie's Angels (2000)
 - Metadata: https://en.wikipedia.org/wiki/Charlie's_Angels_(2000_film)
 - Poster: https://upload.wikimedia.org/wikipedia/en/a/a6/Charlies_Angels_%282000%29_Poster.jpg
 - Catalog runtime: 98 min
 - Verified runtime: 98 min
 
-## Дьявол носит Prada (2006)
+## The Devil Wears Prada (2006)
 - Metadata: https://en.wikipedia.org/wiki/The_Devil_Wears_Prada_(film)
 - Poster: https://upload.wikimedia.org/wikipedia/en/e/e7/The_Devil_Wears_Prada_main_onesheet.jpg
 - Catalog runtime: 109 min
@@ -190,33 +190,33 @@
 - Project Hail Mary standard 2D version: BBFC 156m 32s; catalog follows Wikipedia whole-minute 156 min.
 
 
-## Проверенные ссылки для кнопок просмотра
+## Verified links for watch buttons
 
-| Фильм | Год | Страница на Rezka |
+| Movie | Year | Rezka page |
 | --- | --- | --- |
-| Отель «Гранд Будапешт» | 2014 | https://rezka-tv.org/films/comedy/1278-otel-grand-budapesht-2014.html |
-| Я иду искать | 2019 | https://rezka-tv.org/films/thriller/31884-ya-idu-iskat-2019.html |
-| Интерстеллар | 2014 | https://rezka-tv.org/films/fiction/2259-interstellar-2014.html |
-| Начало | 2010 | https://rezka-tv.org/films/action/770-nachalo-2010.html |
-| Голосовые сообщения для Изабель | 2026 | https://rezka-tv.org/films/comedy/90420-soobscheniya-dlya-izabel-2026.html |
-| Приключения Паддингтона 2 | 2017 | https://rezka-tv.org/films/comedy/26873-priklyucheniya-paddingtona-2-2017-latest.html |
-| ВАЛЛ·И | 2008 | https://rezka-tv.org/cartoons/fiction/776-valli-2008.html |
-| Душа | 2020 | https://rezka-tv.org/cartoons/fantasy/35959-dusha-2020.html |
-| Шоу Трумана | 1998 | https://rezka-tv.org/films/drama/775-shou-trumana-1998.html |
-| Назад в будущее | 1985 | https://rezka-tv.org/films/adventures/1171-nazad-v-buduschee-1985.html |
-| Ла-Ла Ленд | 2016 | https://rezka-tv.org/films/drama/23320-la-la-lend-2016.html |
-| Ночь в музее | 2006 | https://rezka-tv.org/films/adventures/1432-noch-v-muzee-2006.html |
-| Гордость и предубеждение | 2005 | https://rezka-tv.org/films/drama/3560-gordost-i-predubezhdenie-2005.html |
-| Рататуй | 2007 | https://rezka-tv.org/cartoons/adventures/7382-ratatuy-2007.html |
-| Дивергент | 2014 | https://rezka-tv.org/films/fiction/1847-divergent-2014.html |
-| Коралина в Стране Кошмаров | 2009 | https://rezka-tv.org/cartoons/adventures/4455-koralina-v-strane-koshmarov-2008.html |
-| В погоне за счастьем | 2006 | https://rezka-tv.org/films/drama/826-v-pogone-za-schastem-2006.html |
-| Проект «Конец света» | 2026 | https://rezka-tv.org/films/fiction/80586-proekt-ave-mariya-2026-latest.html |
-| Голодные игры | 2012 | https://rezka-tv.org/films/action/205-golodnye-igry-2012.html |
-| Мой сосед Тоторо | 1988 | https://rezka-tv.org/animation/adventures/1347-moy-sosed-totoro-1988.html |
-| Балерина | 2016 | https://rezka-tv.org/cartoons/comedy/20903-balerina-2016.html |
-| Леон | 1994 | https://rezka-tv.org/films/drama/760-leon-1994.html |
-| Ангелы Чарли | 2000 | https://rezka-tv.org/films/action/3362-angely-charli-2000.html |
-| Дьявол носит Prada | 2006 | https://rezka-tv.org/films/drama/4264-dyavol-nosit-prada-2006.html |
+| The Grand Budapest Hotel | 2014 | https://rezka-tv.org/films/comedy/1278-otel-grand-budapesht-2014.html |
+| Ready or Not | 2019 | https://rezka-tv.org/films/thriller/31884-ya-idu-iskat-2019.html |
+| Interstellar | 2014 | https://rezka-tv.org/films/fiction/2259-interstellar-2014.html |
+| Inception | 2010 | https://rezka-tv.org/films/action/770-nachalo-2010.html |
+| Voicemails for Isabelle | 2026 | https://rezka-tv.org/films/comedy/90420-soobscheniya-dlya-izabel-2026.html |
+| Paddington 2 | 2017 | https://rezka-tv.org/films/comedy/26873-priklyucheniya-paddingtona-2-2017-latest.html |
+| WALL·E | 2008 | https://rezka-tv.org/cartoons/fiction/776-valli-2008.html |
+| Soul | 2020 | https://rezka-tv.org/cartoons/fantasy/35959-dusha-2020.html |
+| The Truman Show | 1998 | https://rezka-tv.org/films/drama/775-shou-trumana-1998.html |
+| Back to the Future | 1985 | https://rezka-tv.org/films/adventures/1171-nazad-v-buduschee-1985.html |
+| La La Land | 2016 | https://rezka-tv.org/films/drama/23320-la-la-lend-2016.html |
+| Night at the Museum | 2006 | https://rezka-tv.org/films/adventures/1432-noch-v-muzee-2006.html |
+| Pride & Prejudice | 2005 | https://rezka-tv.org/films/drama/3560-gordost-i-predubezhdenie-2005.html |
+| Ratatouille | 2007 | https://rezka-tv.org/cartoons/adventures/7382-ratatuy-2007.html |
+| Divergent | 2014 | https://rezka-tv.org/films/fiction/1847-divergent-2014.html |
+| Coraline | 2009 | https://rezka-tv.org/cartoons/adventures/4455-koralina-v-strane-koshmarov-2008.html |
+| The Pursuit of Happyness | 2006 | https://rezka-tv.org/films/drama/826-v-pogone-za-schastem-2006.html |
+| Project Hail Mary | 2026 | https://rezka-tv.org/films/fiction/80586-proekt-ave-mariya-2026-latest.html |
+| The Hunger Games | 2012 | https://rezka-tv.org/films/action/205-golodnye-igry-2012.html |
+| My Neighbor Totoro | 1988 | https://rezka-tv.org/animation/adventures/1347-moy-sosed-totoro-1988.html |
+| Ballerina | 2016 | https://rezka-tv.org/cartoons/comedy/20903-balerina-2016.html |
+| Léon: The Professional | 1994 | https://rezka-tv.org/films/drama/760-leon-1994.html |
+| Charlie's Angels | 2000 | https://rezka-tv.org/films/action/3362-angely-charli-2000.html |
+| The Devil Wears Prada | 2006 | https://rezka-tv.org/films/drama/4264-dyavol-nosit-prada-2006.html |
 
-Ссылки проверены через поиск сайта 7 ноября 2026 года. У «Коралины» год в адресе — 2008, но страница подтверждает премьеру 5 февраля 2009 года. Название «Голосовые сообщения для Изабель» согласовано с пользователем; на Rezka фильм указан как «Сообщения для Изабель».
+Links were checked through the site search on November 7, 2026. The Coraline URL contains 2008, but the page confirms a February 5, 2009 premiere. The title Voicemails for Isabelle was confirmed with the user; Rezka lists it under the Russian title “Soobshcheniya dlya Izabel”.

@@ -436,7 +436,7 @@ summary:focus-visible {
   transform: scale(1.045);
 }
 .poster-button:after {
-  content: 'Подробнее ↗';
+  content: 'Details ↗';
   position: absolute;
   bottom: 0;
   left: 0;

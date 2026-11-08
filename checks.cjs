@@ -46,7 +46,7 @@ for (const a of profiles)
     for (const { movie } of forward.items)
       assert.ok(within(movie, a) && within(movie, b), 'Duo preserves both time/comfort limits');
   }
-assert.equal(E.clock('23:50', 30), '00:20 (+1 день)');
+assert.equal(E.clock('23:50', 30), '00:20 (+1 day)');
 assert.equal(E.clock('20:00', 115), '21:55');
 for (const filename of [
   'index.html',

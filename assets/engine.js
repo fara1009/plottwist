@@ -3,23 +3,23 @@
   'use strict';
 
   const genres = {
-    comedy: 'комедия',
-    drama: 'драма',
-    scifi: 'фантастика',
-    thriller: 'триллер',
-    animation: 'анимация',
-    romance: 'романтика',
-    adventure: 'приключения',
-    action: 'боевик',
-    horror: 'ужасы',
-    fantasy: 'фэнтези',
+    comedy: 'comedy',
+    drama: 'drama',
+    scifi: 'sci-fi',
+    thriller: 'thriller',
+    animation: 'animation',
+    romance: 'romance',
+    adventure: 'adventure',
+    action: 'action',
+    horror: 'horror',
+    fantasy: 'fantasy',
   };
 
   const moods = {
-    light: 'лёгкий вечер',
-    wonder: 'чувство открытия',
-    tense: 'интрига',
-    warm: 'тёплая история',
+    light: 'lighthearted',
+    wonder: 'a sense of wonder',
+    tense: 'suspense',
+    warm: 'heartwarming',
   };
 
   const POINTS = {
@@ -61,18 +61,18 @@
   function reasons(movie, preferences) {
     const matches = [];
     if (movie.moods.includes(preferences.mood)) {
-      matches.push('настроение: ' + moods[preferences.mood]);
+      matches.push('mood: ' + moods[preferences.mood]);
     }
     if (preferences.genre !== 'any' && movie.genres.includes(preferences.genre)) {
-      matches.push('любимый жанр: ' + genres[preferences.genre]);
+      matches.push('preferred genre: ' + genres[preferences.genre]);
     }
     if (preferences.duration !== 'any' && fitsDuration(movie, preferences.duration)) {
-      matches.push('укладывается в ' + preferences.duration + ' минут');
+      matches.push('fits within ' + preferences.duration + ' minutes');
     }
     if (preferences.intensity !== 'any' && fitsIntensity(movie, preferences.intensity)) {
-      matches.push('комфортная эмоциональная нагрузка');
+      matches.push('comfortable emotional intensity');
     }
-    return matches.length ? matches : ['возможность попробовать что-то новое'];
+    return matches.length ? matches : ['a chance to try something new'];
   }
 
   function matchesAllPreferences(movie, preferences) {
@@ -89,7 +89,7 @@
     eligibleMovies.sort(
       (first, second) =>
         score(second, preferences) - score(first, preferences) ||
-        first.title.localeCompare(second.title, 'ru'),
+        first.title.localeCompare(second.title, 'en'),
     );
     const items = eligibleMovies.slice(0, 3);
     return { items, exact: items.every((movie) => matchesAllPreferences(movie, preferences)) };
@@ -116,7 +116,7 @@
         Number(second.exact) - Number(first.exact) ||
         Math.min(second.a, second.b) - Math.min(first.a, first.b) ||
         second.a + second.b - first.a - first.b ||
-        first.movie.title.localeCompare(second.movie.title, 'ru'),
+        first.movie.title.localeCompare(second.movie.title, 'en'),
     );
     return {
       items: rankedMovies.slice(0, 3),
@@ -129,7 +129,7 @@
     const totalMinutes = hours * 60 + minutes + offsetMinutes;
     const displayHours = String(Math.floor(totalMinutes / 60) % 24).padStart(2, '0');
     const displayMinutes = String(totalMinutes % 60).padStart(2, '0');
-    const nextDay = totalMinutes >= 1440 ? ' (+1 день)' : '';
+    const nextDay = totalMinutes >= 1440 ? ' (+1 day)' : '';
     return `${displayHours}:${displayMinutes}${nextDay}`;
   }
 

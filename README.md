@@ -13,6 +13,9 @@ A bilingual movie discovery website for choosing a story and planning a movie ni
 - A JSON catalog of 24 movies with search, mood filters and animated sorting.
 - English and Russian throughout all five pages, including movie descriptions, recommendations and accessibility labels. English is the default; the selected language is remembered across pages and reloads.
 - A custom movie details dialog, FAQ accordion and feedback toasts.
+- Cream and wine palette with light/dark themes; the choice is saved across pages and reloads.
+- Copy the evening plan, including quantities, checked items and midnight times; selectable text is offered if clipboard access is denied.
+- Sticky section navigation, a back-to-top button, scroll reveals and viewport-triggered counters.
 
 ## Run locally
 
@@ -64,6 +67,21 @@ The assignment allocates 60% to technical work, 30% to the live defense and up t
 Primary bonus evidence: **dynamic JSON loading (+5)** and **site-wide persisted EN/RU localization (+5)**. Search/filter, quiz, custom dialog, toasts, animated sorting, loader and lazy image loading provide additional working examples, but the bonus total is capped at +10 by the assignment. The teacher makes the final grading decision.
 
 The remaining 30% depends on the student's live demonstration, explanation of their own contribution, problem solving and answers to three theory questions. Source code cannot complete that part on the student's behalf; use the defense guide to prepare.
+
+## Additional bonus features: cream and wine update
+
+`assets/enhancements.js` handles themes and optional interactions. It runs before CSS to restore the saved theme immediately; its UI initialization waits for the application's data. `enhancements-checks.cjs` verifies the new behavior and is included in `node checks.cjs`.
+
+| Assignment feature             | Listed bonus | Implementation                                                                               |
+| ------------------------------ | ------------ | -------------------------------------------------------------------------------------------- |
+| Dark / Light Mode              | +3%          | Header toggle, site-wide CSS variables and localStorage persistence                          |
+| Scroll Animations              | +3%          | IntersectionObserver triggers jQuery opacity animation and a short upward reveal             |
+| Animated Counters              | +3%          | Catalog and saved-list numbers animate with requestAnimationFrame when entering the viewport |
+| Sticky Navigation / Scroll Spy | +2%          | Scroll handler updates the active catalog/together/questions link and `aria-current`         |
+| Back to Top                    | +2%          | Appears after scrolling, returns smoothly to the top and moves keyboard focus to the brand   |
+| Clipboard Copy Button          | +2%          | Clipboard API copies the current evening kit in EN/RU, with feedback and manual fallback     |
+
+These are separate working examples; the assignment's total bonus is still capped at +10%. Reduced-motion preferences bypass the animations. Keyboard focus immediately reveals hidden sections. Blocked storage or clipboard access does not stop the site from working.
 
 ## Recommendation rules
 

@@ -3,6 +3,7 @@
   const i18n = globalThis.PlotI18n;
   const [catalog] = await Promise.all([globalThis.PlotData.load(), i18n.init()]);
   const t = i18n.t;
+  const enhancements = globalThis.PlotEnhancements;
   let movies = globalThis.PlotData.localize(catalog, i18n);
   // 1. Помощники для DOM, данные и сохранение в браузере.
   const getElement = (selector, root = document) => root.querySelector(selector);
@@ -137,14 +138,40 @@
             )
             .join('')}
         </nav>
-        <div class="language-control">
-          <label class="visually-hidden" for="language-switch">${t('language.label')}</label>
-          <select id="language-switch" class="language-select" aria-label="${t('language.label')}">
-            <option value="en" ${i18n.language === 'en' ? 'selected' : ''}>EN</option>
-            <option value="ru" ${i18n.language === 'ru' ? 'selected' : ''}>RU</option>
-          </select>
+        <div class="header-actions">
+          <button
+            id="theme-toggle"
+            class="theme-toggle"
+            type="button"
+            aria-label="${t('theme.toggle')}"
+            aria-pressed="${enhancements.theme === 'light'}"
+          >
+            <span data-theme-icon aria-hidden="true"
+              >${enhancements.theme === 'light' ? '☾' : '☀'}</span
+            >
+          </button>
+          <div class="language-control">
+            <label class="visually-hidden" for="language-switch">${t('language.label')}</label>
+            <select
+              id="language-switch"
+              class="language-select"
+              aria-label="${t('language.label')}"
+            >
+              <option value="en" ${i18n.language === 'en' ? 'selected' : ''}>EN</option>
+              <option value="ru" ${i18n.language === 'ru' ? 'selected' : ''}>RU</option>
+            </select>
+          </div>
         </div>
       </div>
+      ${page === 'home'
+        ? `<nav class="section-navigation" aria-label="${t('scroll.sections')}">
+        <div class="container">
+          <a href="#catalog" data-section-link="catalog">${t('scroll.catalog')}</a>
+          <a href="#together-preview" data-section-link="together-preview">${t('scroll.together')}</a>
+          <a href="#questions" data-section-link="questions">${t('scroll.faq')}</a>
+        </div>
+      </nav>`
+        : ''}
     `;
     getElement('#site-footer').innerHTML = /* HTML */ `
       <div class="container footer-inner">
@@ -157,6 +184,8 @@
         <a class="footer-link" href="assets/SOURCES.md">${t('ui.poster_and_data_sources')}</a>
       </div>
     `;
+    getElement('#theme-toggle').onclick = enhancements.toggleTheme;
+    getElement('.menu-button').setAttribute('aria-label', t('ui.menu'));
     getElement('#language-switch').addEventListener('change', changeLanguage);
     getElement('.menu-button').addEventListener('click', (e) => {
       const open = e.currentTarget.getAttribute('aria-expanded') !== 'true';
@@ -334,6 +363,14 @@
         </div>
       </div>
       <section class="section container" id="catalog">
+        <div class="catalog-summary">
+          <div>
+            <strong data-count="${movies.length}">${movies.length}</strong
+            ><span>${t('counter.movies')}</span>
+          </div>
+          <div><strong data-count="2">2</strong><span>${t('counter.languages')}</span></div>
+          <div><strong data-count="4">4</strong><span>${t('counter.questions')}</span></div>
+        </div>
         <div class="section-head">
           <div>
             <div class="eyebrow">${t('ui.picked_for_you')}</div>
@@ -385,7 +422,7 @@
         </label>
         <div class="row g-4" id="movie-grid"></div>
       </section>
-      <section class="curated container">
+      <section class="curated container" id="together-preview">
         <div class="callout">
           <div>
             <div class="eyebrow" style="margin-bottom:13px">${t('ui.two_tastes_one_movie')}</div>
@@ -395,7 +432,7 @@
           <a class="button primary" href="together.html">${t('ui.find_your_match')}</a>
         </div>
       </section>
-      <section class="container curated">
+      <section class="container curated" id="questions">
         <div class="section-head"><h2>${t('ui.before_you_press_play')}</h2></div>
         ${[
           [
@@ -494,6 +531,7 @@
         });
         renderCatalog();
       };
+    enhancements.refresh();
     globalThis.PlotData.observePosters(getElement('#movie-grid'));
     if (animate && globalThis.jQuery && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
       jQuery('#movie-grid').stop(true, true).hide().fadeIn(180);
@@ -1057,6 +1095,9 @@
             <div class="result-actions">
               <button class="button secondary small" data-save="${m.id}">${t('ui.my_list')}</button>
               ${watchLink(m, true)}
+              <button class="button secondary small" id="copy-evening" type="button">
+                ${t('copy.plan')}
+              </button>
             </div>
           </div>
         </div>
@@ -1120,6 +1161,45 @@
         </div>
       </div>
     `;
+    getElement('#copy-evening').onclick = async () => {
+      const lines = [
+        `PlotTwist — ${m.title}`,
+        `${m.year} · ${m.minutes}${t('ui.min')}`,
+        '',
+        snack,
+        `${t('kit.serves')}${['', t('ui.one'), t('ui.two'), t('ui.three'), t('ui.four')][n]}. ${instruction}`,
+        ...checklist.map(
+          (text, index) => `${state.evening.checked.includes(index) ? '[x]' : '[ ]'} ${text}`,
+        ),
+        '',
+        ...atmos,
+        '',
+        t('ui.a_plan_with_time_to_unwind'),
+        `${formatClock(kit.start, 0)} — ${t('ui.prepare_your_snack_and_settle_in')}`,
+        `${formatClock(kit.start, 15)} — ${t('ui.start_watching')}${m.title}»`,
+        `${formatClock(kit.start, 15 + m.minutes)} — ${t('ui.credits_roll_what_was_your_favorite_moment')}`,
+      ];
+      const text = lines.join('\n');
+      if (!(await enhancements.copy(text))) {
+        let fallback = getElement('#copy-fallback');
+        if (!fallback) {
+          fallback = document.createElement('label');
+          fallback.id = 'copy-fallback';
+          fallback.className = 'input-label copy-fallback';
+          fallback.textContent = t('copy.manual');
+          const textarea = document.createElement('textarea');
+          textarea.className = 'field';
+          textarea.readOnly = true;
+          textarea.rows = 8;
+          fallback.append(textarea);
+          getElement('#evening-output .panel').append(fallback);
+        }
+        const textarea = getElement('textarea', fallback);
+        textarea.value = text;
+        textarea.focus();
+        textarea.select();
+      }
+    };
     getElements('[data-kit-check]').forEach(
       (el) =>
         (el.onchange = () => {
@@ -1129,6 +1209,7 @@
           persist();
         }),
     );
+    enhancements.refresh();
     updateCount();
   }
   // 7. Личная коллекция: статусы просмотра и оценки.
@@ -1187,15 +1268,15 @@
     getElement('#list-stats').innerHTML = /* HTML */ `
       <div class="stats">
         <div class="stat">
-          <b>${all.length}</b>
+          <b data-count="${all.length}">${all.length}</b>
           <span>${t('ui.in_your_collection')}</span>
         </div>
         <div class="stat">
-          <b>${all.length - viewed.length}</b>
+          <b data-count="${all.length - viewed.length}">${all.length - viewed.length}</b>
           <span>${t('ui.waiting_for_movie_night')}</span>
         </div>
         <div class="stat">
-          <b>${viewed.length}</b>
+          <b data-count="${viewed.length}">${viewed.length}</b>
           <span>${t('ui.already_watched')}</span>
         </div>
       </div>
@@ -1309,6 +1390,7 @@
     getElements('[data-remove]').forEach(
       (el) => (el.onclick = () => toggleSave(el.dataset.remove)),
     );
+    enhancements.refresh();
     updateCount();
   }
   // 8. Подробности фильма в модальном окне.
@@ -1394,6 +1476,7 @@
     else if (page === 'list') list();
     updateCount();
     getElement('#main').removeAttribute('aria-busy');
+    enhancements.refresh();
   }
 
   async function changeLanguage(event) {
@@ -1434,6 +1517,7 @@
     }
   }
 
+  enhancements.init({ t, toast });
   renderPage();
   if (storageWarning) toast(t('ui.saved_data_is_unavailable_you_can_start_a_new_list'));
 })().catch((error) => {

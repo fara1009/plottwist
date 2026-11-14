@@ -113,8 +113,9 @@ async function main() {
       assert.ok(fs.existsSync(path.join(__dirname, asset.split('?')[0])), asset);
   }
   await checkRuntime();
+  await require('./enhancements-checks.cjs')();
   console.log(
-    `PASS: ${profiles.length} profiles; ${profiles.length ** 2} pairs; language-independent ranking; reason descriptors; JSON loading/validation; EN/RU caching/persistence; clock rollover; 24 used posters; all HTML assets.`,
+    `PASS: ${profiles.length} profiles; ${profiles.length ** 2} pairs; language-independent ranking; reason descriptors; JSON loading/validation; EN/RU caching/persistence; clock rollover; theme/clipboard/scroll/counter checks; 24 used posters; all HTML assets.`,
   );
 }
 

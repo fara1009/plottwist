@@ -436,7 +436,7 @@ summary:focus-visible {
   transform: scale(1.045);
 }
 .poster-button:after {
-  content: 'Details ↗';
+  content: attr(data-details-label);
   position: absolute;
   bottom: 0;
   left: 0;
@@ -859,6 +859,7 @@ summary:focus-visible {
 }
 .list-item-main {
   flex: 1;
+  min-width: 0;
 }
 .list-item h3 {
   font-size: 19px;
@@ -1279,4 +1280,140 @@ summary:focus-visible {
 .evening-card img,
 .list-item img {
   height: auto;
+}
+
+/* Final project: language controls, loading feedback and narrow-screen resilience. */
+h1,
+h2,
+h3,
+.duo-badge,
+.reason,
+.timeline span {
+  overflow-wrap: anywhere;
+}
+.panel,
+.result-body,
+.list-item-main,
+.evening-card > div {
+  min-width: 0;
+}
+.header-inner {
+  gap: 20px;
+}
+.navigation {
+  margin-left: auto;
+  gap: 20px;
+}
+.language-control {
+  flex-shrink: 0;
+}
+.language-select {
+  color: var(--ink);
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 8px 7px;
+  min-height: 40px;
+  font: inherit;
+  font-size: 13px;
+}
+.catalog-sort {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-bottom: 22px;
+  font-size: 13px;
+  color: var(--muted);
+}
+.catalog-sort .field {
+  width: auto;
+  min-width: 165px;
+  padding: 9px 12px;
+}
+.list-item > [data-remove] {
+  min-width: 32px;
+  min-height: 32px;
+  flex-shrink: 0;
+}
+.field[aria-invalid='true'] {
+  border-color: #ffaf94;
+  box-shadow: 0 0 0 1px #ffaf94;
+}
+.handover {
+  border: 0;
+}
+.loading-state {
+  min-height: 55vh;
+  display: grid;
+  align-content: center;
+  justify-items: center;
+  gap: 20px;
+  padding: 30px;
+  color: var(--muted);
+  text-align: center;
+}
+.loading-ring {
+  width: 38px;
+  height: 38px;
+  border: 3px solid var(--line);
+  border-top-color: var(--accent);
+  border-radius: 50%;
+  animation: loading-turn 0.8s linear infinite;
+}
+@keyframes loading-turn {
+  to {
+    transform: rotate(360deg);
+  }
+}
+#main:focus {
+  outline: none;
+}
+@media (max-width: 991px) {
+  .header-inner {
+    gap: 12px;
+  }
+  .navigation {
+    gap: 12px;
+  }
+}
+@media (max-width: 700px) {
+  .brand {
+    order: 0;
+    margin-right: auto;
+  }
+  .language-control {
+    order: 1;
+  }
+  .menu-button {
+    order: 2;
+  }
+  .navigation {
+    order: 3;
+    margin-left: 0;
+  }
+  .catalog-sort {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+  .catalog-sort .field {
+    max-width: 100%;
+  }
+  .question-nav {
+    gap: 10px;
+  }
+  .question-nav .button {
+    padding: 12px;
+  }
+  .list-item {
+    gap: 10px;
+  }
+  .list-controls select {
+    max-width: 100%;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .loading-ring {
+    animation: none;
+  }
 }

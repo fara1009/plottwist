@@ -1,26 +1,44 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="PlotTwist: find a movie for your mood, choose together and plan the perfect movie night.">
-  <meta name="theme-color" content="#111311">
-  <title>Your movie night — PlotTwist</title>
-  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
-  <link rel="stylesheet" href="assets/vendor/bootstrap.min.css">
-  <link rel="stylesheet" href="assets/style.css?v=296aba017b">
-  <script defer src="assets/vendor/jquery.min.js"></script>
-  <script defer src="assets/movies.js?v=cded05f9ef"></script>
-  <script defer src="assets/engine.js?v=596322b815"></script>
-  <script defer src="assets/app.js?v=4561462e82"></script>
-</head>
-<body data-page="evening">
-  <a class="skip-link" href="#main">Skip to content</a>
-  <header id="site-header" class="site-header"></header>
-  <noscript><p class="noscript">Enable JavaScript in your browser to use the quiz, movie recommendations and personal list.</p></noscript>
-  <main id="main"></main>
-  <footer id="site-footer" class="site-footer"></footer>
-  <dialog id="movie-dialog" class="dialog" aria-labelledby="dialog-title"></dialog>
-  <div id="toast" class="toast-message" role="status" aria-live="polite" hidden></div>
-</body>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="PlotTwist: find a movie for your mood, choose together and plan the perfect movie night."
+    />
+    <meta name="theme-color" content="#111311" />
+    <title>Your movie night — PlotTwist</title>
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+    <link rel="stylesheet" href="assets/vendor/bootstrap.min.css" />
+    <link rel="stylesheet" href="assets/style.css?v=c110c99d54" />
+    <script defer src="assets/vendor/jquery.min.js"></script>
+    <script defer src="assets/data.js?v=78137970e7"></script>
+    <script defer src="assets/i18n.js?v=3b96ae5fb5"></script>
+    <script defer src="assets/engine.js?v=f189758ac4"></script>
+    <script defer src="assets/app.js?v=bddafeb03d"></script>
+  </head>
+  <body data-page="evening">
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header id="site-header" class="site-header"></header>
+    <noscript
+      ><p class="noscript">
+        Enable JavaScript in your browser to use the quiz, movie recommendations and personal list.
+      </p></noscript
+    >
+    <main id="main" tabindex="-1" aria-busy="true">
+      <div class="loading-state" role="status">
+        <span class="loading-ring" aria-hidden="true"></span>
+        <p>Loading your next movie night…</p>
+      </div>
+    </main>
+    <footer id="site-footer" class="site-footer"></footer>
+    <dialog
+      id="movie-dialog"
+      class="dialog"
+      aria-labelledby="dialog-title"
+      aria-describedby="dialog-description"
+    ></dialog>
+    <div id="toast" class="toast-message" role="status" aria-live="polite" hidden></div>
+  </body>
 </html>

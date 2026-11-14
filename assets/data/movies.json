@@ -1,0 +1,269 @@
+{
+  "version": 2,
+  "movies": [
+    {
+      "id": "grand-budapest",
+      "year": 2014,
+      "minutes": 100,
+      "genres": ["comedy", "adventure"],
+      "moods": ["light", "wonder"],
+      "intensity": 2,
+      "poster": "assets/posters/grand-budapest.png",
+      "watchUrl": "https://rezka-tv.org/films/comedy/1278-otel-grand-budapesht-2014.html",
+      "originalTitle": "The Grand Budapest Hotel"
+    },
+    {
+      "id": "ready-or-not",
+      "year": 2019,
+      "minutes": 95,
+      "genres": ["horror", "thriller", "comedy"],
+      "moods": ["tense"],
+      "intensity": 3,
+      "poster": "assets/posters/ready-or-not.jpg",
+      "watchUrl": "https://rezka-tv.org/films/thriller/31884-ya-idu-iskat-2019.html",
+      "originalTitle": "Ready or Not"
+    },
+    {
+      "id": "interstellar",
+      "year": 2014,
+      "minutes": 169,
+      "genres": ["scifi", "drama", "adventure"],
+      "moods": ["wonder", "tense"],
+      "intensity": 3,
+      "poster": "assets/posters/interstellar.jpg",
+      "watchUrl": "https://rezka-tv.org/films/fiction/2259-interstellar-2014.html",
+      "originalTitle": "Interstellar"
+    },
+    {
+      "id": "inception",
+      "year": 2010,
+      "minutes": 148,
+      "genres": ["scifi", "thriller"],
+      "moods": ["tense", "wonder"],
+      "intensity": 3,
+      "poster": "assets/posters/inception.jpg",
+      "watchUrl": "https://rezka-tv.org/films/action/770-nachalo-2010.html",
+      "originalTitle": "Inception"
+    },
+    {
+      "id": "voicemails-for-isabelle",
+      "year": 2026,
+      "minutes": 118,
+      "genres": ["romance", "comedy", "drama"],
+      "moods": ["warm"],
+      "intensity": 2,
+      "poster": "assets/posters/voicemails-for-isabelle.jpg",
+      "watchUrl": "https://rezka-tv.org/films/comedy/90420-soobscheniya-dlya-izabel-2026.html",
+      "originalTitle": "Voicemails for Isabelle"
+    },
+    {
+      "id": "paddington-2",
+      "year": 2017,
+      "minutes": 104,
+      "genres": ["comedy", "adventure"],
+      "moods": ["light", "warm"],
+      "intensity": 1,
+      "poster": "assets/posters/paddington-2.jpg",
+      "watchUrl": "https://rezka-tv.org/films/comedy/26873-priklyucheniya-paddingtona-2-2017-latest.html",
+      "originalTitle": "Paddington 2"
+    },
+    {
+      "id": "wall-e",
+      "year": 2008,
+      "minutes": 98,
+      "genres": ["animation", "scifi", "romance"],
+      "moods": ["warm", "wonder"],
+      "intensity": 1,
+      "poster": "assets/posters/wall-e.jpg",
+      "watchUrl": "https://rezka-tv.org/cartoons/fiction/776-valli-2008.html",
+      "originalTitle": "WALL·E"
+    },
+    {
+      "id": "soul",
+      "year": 2020,
+      "minutes": 101,
+      "genres": ["animation", "drama"],
+      "moods": ["warm", "wonder"],
+      "intensity": 2,
+      "poster": "assets/posters/soul.jpg",
+      "watchUrl": "https://rezka-tv.org/cartoons/fantasy/35959-dusha-2020.html",
+      "originalTitle": "Soul"
+    },
+    {
+      "id": "truman-show",
+      "year": 1998,
+      "minutes": 103,
+      "genres": ["drama", "scifi"],
+      "moods": ["wonder", "tense"],
+      "intensity": 2,
+      "poster": "assets/posters/truman-show.jpg",
+      "watchUrl": "https://rezka-tv.org/films/drama/775-shou-trumana-1998.html",
+      "originalTitle": "The Truman Show"
+    },
+    {
+      "id": "back-to-future",
+      "year": 1985,
+      "minutes": 116,
+      "genres": ["scifi", "comedy", "adventure"],
+      "moods": ["light", "wonder"],
+      "intensity": 2,
+      "poster": "assets/posters/back-to-future.jpg",
+      "watchUrl": "https://rezka-tv.org/films/adventures/1171-nazad-v-buduschee-1985.html",
+      "originalTitle": "Back to the Future"
+    },
+    {
+      "id": "la-la-land",
+      "year": 2016,
+      "minutes": 128,
+      "genres": ["romance", "drama"],
+      "moods": ["warm", "wonder"],
+      "intensity": 2,
+      "poster": "assets/posters/la-la-land.png",
+      "watchUrl": "https://rezka-tv.org/films/drama/23320-la-la-lend-2016.html",
+      "originalTitle": "La La Land"
+    },
+    {
+      "id": "night-at-the-museum",
+      "year": 2006,
+      "minutes": 108,
+      "genres": ["comedy", "adventure", "fantasy"],
+      "moods": ["light", "wonder"],
+      "intensity": 1,
+      "poster": "assets/posters/night-at-the-museum.jpg",
+      "watchUrl": "https://rezka-tv.org/films/adventures/1432-noch-v-muzee-2006.html",
+      "originalTitle": "Night at the Museum"
+    },
+    {
+      "id": "pride-and-prejudice",
+      "year": 2005,
+      "minutes": 127,
+      "genres": ["romance", "drama"],
+      "moods": ["warm"],
+      "intensity": 2,
+      "poster": "assets/posters/pride-and-prejudice.jpg",
+      "watchUrl": "https://rezka-tv.org/films/drama/3560-gordost-i-predubezhdenie-2005.html",
+      "originalTitle": "Pride & Prejudice"
+    },
+    {
+      "id": "ratatouille",
+      "year": 2007,
+      "minutes": 111,
+      "genres": ["animation", "comedy"],
+      "moods": ["warm", "light"],
+      "intensity": 1,
+      "poster": "assets/posters/ratatouille.jpg",
+      "watchUrl": "https://rezka-tv.org/cartoons/adventures/7382-ratatuy-2007.html",
+      "originalTitle": "Ratatouille"
+    },
+    {
+      "id": "divergent",
+      "year": 2014,
+      "minutes": 139,
+      "genres": ["scifi", "action", "adventure"],
+      "moods": ["tense", "wonder"],
+      "intensity": 2,
+      "poster": "assets/posters/divergent.jpg",
+      "watchUrl": "https://rezka-tv.org/films/fiction/1847-divergent-2014.html",
+      "originalTitle": "Divergent"
+    },
+    {
+      "id": "coraline",
+      "year": 2009,
+      "minutes": 100,
+      "genres": ["animation", "fantasy", "adventure"],
+      "moods": ["wonder", "tense"],
+      "intensity": 2,
+      "poster": "assets/posters/coraline.jpg",
+      "watchUrl": "https://rezka-tv.org/cartoons/adventures/4455-koralina-v-strane-koshmarov-2008.html",
+      "originalTitle": "Coraline"
+    },
+    {
+      "id": "pursuit-of-happyness",
+      "year": 2006,
+      "minutes": 117,
+      "genres": ["drama"],
+      "moods": ["warm"],
+      "intensity": 3,
+      "poster": "assets/posters/pursuit-of-happyness.jpg",
+      "watchUrl": "https://rezka-tv.org/films/drama/826-v-pogone-za-schastem-2006.html",
+      "originalTitle": "The Pursuit of Happyness"
+    },
+    {
+      "id": "project-hail-mary",
+      "year": 2026,
+      "minutes": 156,
+      "genres": ["scifi", "adventure", "drama"],
+      "moods": ["wonder", "tense"],
+      "intensity": 2,
+      "poster": "assets/posters/project-hail-mary.jpg",
+      "watchUrl": "https://rezka-tv.org/films/fiction/80586-proekt-ave-mariya-2026-latest.html",
+      "originalTitle": "Project Hail Mary"
+    },
+    {
+      "id": "hunger-games",
+      "year": 2012,
+      "minutes": 142,
+      "genres": ["scifi", "action", "adventure"],
+      "moods": ["tense"],
+      "intensity": 3,
+      "poster": "assets/posters/hunger-games.jpg",
+      "watchUrl": "https://rezka-tv.org/films/action/205-golodnye-igry-2012.html",
+      "originalTitle": "The Hunger Games"
+    },
+    {
+      "id": "my-neighbor-totoro",
+      "year": 1988,
+      "minutes": 86,
+      "genres": ["animation", "fantasy"],
+      "moods": ["warm", "wonder", "light"],
+      "intensity": 1,
+      "poster": "assets/posters/my-neighbor-totoro.jpg",
+      "watchUrl": "https://rezka-tv.org/animation/adventures/1347-moy-sosed-totoro-1988.html",
+      "originalTitle": "My Neighbor Totoro"
+    },
+    {
+      "id": "ballerina",
+      "year": 2016,
+      "minutes": 89,
+      "genres": ["animation", "adventure", "comedy"],
+      "moods": ["warm", "light"],
+      "intensity": 1,
+      "poster": "assets/posters/ballerina.png",
+      "watchUrl": "https://rezka-tv.org/cartoons/comedy/20903-balerina-2016.html",
+      "originalTitle": "Ballerina"
+    },
+    {
+      "id": "leon",
+      "year": 1994,
+      "minutes": 110,
+      "genres": ["action", "thriller", "drama"],
+      "moods": ["tense"],
+      "intensity": 3,
+      "poster": "assets/posters/leon.jpg",
+      "watchUrl": "https://rezka-tv.org/films/drama/760-leon-1994.html",
+      "originalTitle": "Léon: The Professional"
+    },
+    {
+      "id": "charlies-angels",
+      "year": 2000,
+      "minutes": 98,
+      "genres": ["action", "comedy", "adventure"],
+      "moods": ["light"],
+      "intensity": 2,
+      "poster": "assets/posters/charlies-angels.jpg",
+      "watchUrl": "https://rezka-tv.org/films/action/3362-angely-charli-2000.html",
+      "originalTitle": "Charlie's Angels"
+    },
+    {
+      "id": "devil-wears-prada",
+      "year": 2006,
+      "minutes": 109,
+      "genres": ["comedy", "drama"],
+      "moods": ["light"],
+      "intensity": 2,
+      "poster": "assets/posters/devil-wears-prada.jpg",
+      "watchUrl": "https://rezka-tv.org/films/drama/4264-dyavol-nosit-prada-2006.html",
+      "originalTitle": "The Devil Wears Prada"
+    }
+  ]
+}

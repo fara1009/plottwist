@@ -2,26 +2,6 @@
 (function (root) {
   'use strict';
 
-  const genres = {
-    comedy: 'comedy',
-    drama: 'drama',
-    scifi: 'sci-fi',
-    thriller: 'thriller',
-    animation: 'animation',
-    romance: 'romance',
-    adventure: 'adventure',
-    action: 'action',
-    horror: 'horror',
-    fantasy: 'fantasy',
-  };
-
-  const moods = {
-    light: 'lighthearted',
-    wonder: 'a sense of wonder',
-    tense: 'suspense',
-    warm: 'heartwarming',
-  };
-
   const POINTS = {
     mood: 5,
     genre: 4,
@@ -61,18 +41,18 @@
   function reasons(movie, preferences) {
     const matches = [];
     if (movie.moods.includes(preferences.mood)) {
-      matches.push('mood: ' + moods[preferences.mood]);
+      matches.push({ type: 'mood', value: preferences.mood });
     }
     if (preferences.genre !== 'any' && movie.genres.includes(preferences.genre)) {
-      matches.push('preferred genre: ' + genres[preferences.genre]);
+      matches.push({ type: 'genre', value: preferences.genre });
     }
     if (preferences.duration !== 'any' && fitsDuration(movie, preferences.duration)) {
-      matches.push('fits within ' + preferences.duration + ' minutes');
+      matches.push({ type: 'duration', value: preferences.duration });
     }
     if (preferences.intensity !== 'any' && fitsIntensity(movie, preferences.intensity)) {
-      matches.push('comfortable emotional intensity');
+      matches.push({ type: 'intensity' });
     }
-    return matches.length ? matches : ['a chance to try something new'];
+    return matches.length ? matches : [{ type: 'discovery' }];
   }
 
   function matchesAllPreferences(movie, preferences) {
@@ -89,7 +69,7 @@
     eligibleMovies.sort(
       (first, second) =>
         score(second, preferences) - score(first, preferences) ||
-        first.title.localeCompare(second.title, 'en'),
+        first.id.localeCompare(second.id, 'en'),
     );
     const items = eligibleMovies.slice(0, 3);
     return { items, exact: items.every((movie) => matchesAllPreferences(movie, preferences)) };
@@ -116,7 +96,7 @@
         Number(second.exact) - Number(first.exact) ||
         Math.min(second.a, second.b) - Math.min(first.a, first.b) ||
         second.a + second.b - first.a - first.b ||
-        first.movie.title.localeCompare(second.movie.title, 'en'),
+        first.movie.id.localeCompare(second.movie.id, 'en'),
     );
     return {
       items: rankedMovies.slice(0, 3),
@@ -124,16 +104,16 @@
     };
   }
 
-  function clock(startTime, offsetMinutes) {
+  function clock(startTime, offsetMinutes, nextDayLabel = ' (+1 day)') {
     const [hours, minutes] = startTime.split(':').map(Number);
     const totalMinutes = hours * 60 + minutes + offsetMinutes;
     const displayHours = String(Math.floor(totalMinutes / 60) % 24).padStart(2, '0');
     const displayMinutes = String(totalMinutes % 60).padStart(2, '0');
-    const nextDay = totalMinutes >= 1440 ? ' (+1 day)' : '';
+    const nextDay = totalMinutes >= 1440 ? nextDayLabel : '';
     return `${displayHours}:${displayMinutes}${nextDay}`;
   }
 
-  const api = { genres, moods, score, reasons, recommend, together, clock };
+  const api = { score, reasons, recommend, together, clock };
   root.PlotEngine = api;
   // Экспорт нужен для проверок в Node.js. В браузере используется PlotEngine.
   if (typeof module !== 'undefined') module.exports = api;

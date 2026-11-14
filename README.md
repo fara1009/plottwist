@@ -1,45 +1,73 @@
 # PlotTwist
 
-A website for choosing movies and planning movie nights.
+A bilingual movie discovery website for choosing a story and planning a movie night.
 
-**[Open the website](https://fara1009.github.io/plottwist/)**
+**[Open PlotTwist](https://fara1009.github.io/plottwist/)** · **[Defense guide](DEFENSE_GUIDE.md)**
 
 ## Features
 
-- A four-question mood quiz with explained recommendations.
-- Choose together: two people answer in turn on the same device.
-- A movie night kit with a snack, atmosphere, schedule and saved checklist.
-- A personal list with watch statuses and ratings.
-- A catalog of 24 movies, search, mood filters and spoiler-free details.
-- English interface, movie titles, descriptions and accessibility labels.
-
-## Technologies
-
-HTML, CSS, Bootstrap Grid 5.3.3, JavaScript and jQuery 3.7.1.
-Libraries and posters are stored in the repository, so the website can run offline.
-External watch links require internet access. Your list and most recent movie night
-kit are stored in localStorage on the current device and browser only.
+- A four-question mood quiz with reasons for each recommendation.
+- Choose together: two people answer separately on one device; both preferences count equally.
+- A movie night kit with scaled snack ingredients, atmosphere, a schedule and a saved checklist.
+- A personal list with watch statuses and ratings, saved in the current browser.
+- A JSON catalog of 24 movies with search, mood filters and animated sorting.
+- English and Russian throughout all five pages, including movie descriptions, recommendations and accessibility labels. English is the default; the selected language is remembered across pages and reloads.
+- A custom movie details dialog, FAQ accordion and feedback toasts.
 
 ## Run locally
 
-Open the folder with Live Server in VS Code, or start a static server:
+Serve this folder over HTTP: JSON files are loaded with `fetch`, so opening HTML directly with `file://` will not work.
+
+With Node.js, no dependencies or installation are required:
 
 ```sh
-python -m http.server 8000
+node server.cjs
 ```
 
-Then visit http://localhost:8000. You can also open `index.html` directly,
-but a server is recommended for reliable storage across pages.
+Then open http://127.0.0.1:8000. Alternatively, use VS Code Live Server or run `python -m http.server 8000` from the project folder. Stop the server with Ctrl+C.
 
-## Pages
+The production site is static GitHub Pages. Bootstrap, jQuery and all 24 posters are local assets. External watch links need an internet connection. This website does not play videos or send personal data to a server. Saved lists, ratings and kits belong to the current browser and origin; moving to another browser/domain does not transfer them.
 
-| File | Purpose |
-| --- | --- |
-| `index.html` | Home and catalog |
-| `quiz.html` | Mood quiz |
-| `together.html` | Choose together |
-| `evening.html` | Movie night kit |
-| `my-list.html` | Personal list |
+## Structure
+
+| File                                | Responsibility                                                                 |
+| ----------------------------------- | ------------------------------------------------------------------------------ |
+| `index.html`                        | Home, catalog, FAQ                                                             |
+| `quiz.html`                         | Single-person quiz                                                             |
+| `together.html`                     | Two-person matching                                                            |
+| `evening.html`                      | Movie night kit                                                                |
+| `my-list.html`                      | Saved collection                                                               |
+| `assets/app.js`                     | Shared layout, page rendering and event handlers                               |
+| `assets/engine.js`                  | Pure recommendation, explanation and time calculations                         |
+| `assets/data.js`                    | Fetching and validating catalog data; progressive poster loading               |
+| `assets/i18n.js`                    | Loading/caching dictionaries, translating placeholders and persisting language |
+| `assets/data/movies.json`           | Language-independent movie IDs, metadata and links                             |
+| `assets/locales/en.json`, `ru.json` | Interface text, movie titles and descriptions                                  |
+| `assets/style.css`                  | Shared design, responsive layouts, focus and reduced-motion styles             |
+| `assets/vendor/`                    | Bootstrap Grid 5.3.3 and jQuery 3.7.1                                          |
+| `checks.cjs`                        | Automated checks using built-in Node.js modules                                |
+| `server.cjs`                        | Optional local static server                                                   |
+
+## Final Project Criteria
+
+The assignment allocates 60% to technical work, 30% to the live defense and up to 10 additional bonus points. Optional bonus examples are alternatives; implementing all of them is not required.
+
+| Technical criterion                       | Weight | Evidence in this project                                                                                                                                                                         |
+| ----------------------------------------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Structure, connected pages and navigation | 5%     | Five HTML pages, shared navigation, active-page indicators and contextual links                                                                                                                  |
+| Consistent design and usability           | 5%     | Shared header/footer, reusable cards/forms/buttons and consistent typography/colors                                                                                                              |
+| Responsiveness and accessibility          | 10%    | Bootstrap breakpoints, custom mobile layout, semantic landmarks, form labels, poster alt text, keyboard focus, skip link, dialog labels, live status messages and reduced-motion support         |
+| Bootstrap and custom CSS                  | 15%    | Local Bootstrap 12-column grid (`container`, `row`, responsive `col-*`) combined with custom components and media queries                                                                        |
+| JavaScript and jQuery                     | 20%    | Quiz, fair two-person ranking, input validation, search/filter/sort, saved collection, dynamic kits; jQuery FAQ slides, question fades, sorting and validation animations                        |
+| Code quality and optimization             | 5%     | Separate data/localization/logic/UI files, named functions, validated JSON, safe text escaping, cached requests, deferred scripts, local optimized posters and progressive catalog image loading |
+
+Primary bonus evidence: **dynamic JSON loading (+5)** and **site-wide persisted EN/RU localization (+5)**. Search/filter, quiz, custom dialog, toasts, animated sorting, loader and lazy image loading provide additional working examples, but the bonus total is capped at +10 by the assignment. The teacher makes the final grading decision.
+
+The remaining 30% depends on the student's live demonstration, explanation of their own contribution, problem solving and answers to three theory questions. Source code cannot complete that part on the student's behalf; use the defense guide to prepare.
+
+## Recommendation rules
+
+Duration and emotional intensity are hard limits. Eligible movies receive points for mood (5), genre (4), duration (3) and intensity (2). Exact mood/genre matches rank first; other eligible picks are clearly identified as alternatives. Up to three results are shown. When two people choose, each movie must meet both hard limits. Sorting then prioritizes an exact match for both, the better minimum individual score and the combined score. Stable IDs break ties, so changing the interface language does not change recommendations. Intensity is an editorial label, not an age rating.
 
 ## Validation
 
@@ -47,48 +75,12 @@ but a server is recommended for reliable storage across pages.
 node checks.cjs
 ```
 
-Checks cover 216 quiz profiles, 46,656 pairs of answers, equal treatment of both
-participants, time and intensity limits, midnight rollover and local asset paths.
+Checks cover 216 preference profiles and 46,656 pairs, equal treatment of participants, hard limits, language-independent results, truthful explanation descriptors, midnight rollover, catalog validation, dictionary key/placeholder parity, request caching, language persistence/failure behavior, local HTML assets and exactly 24 used posters.
 
-## Sources
+Browser verification covers all five pages at desktop, tablet and phone widths in both languages, plus mid-quiz language switching, two-person handover/results, form validation, list status/rating persistence, saved kits/checklists, midnight schedules, sorting and keyboard dialog closure.
 
-Movie and poster sources: [assets/SOURCES.md](assets/SOURCES.md).
-Descriptions were written for this student project. Posters belong to their
-respective rights holders. Emotional intensity is an editorial description and
-does not replace an age rating. The website does not provide video playback.
+## Maintenance and sources
 
-## Catalog and source maintenance
+Edit movie metadata in `assets/data/movies.json` and both locale dictionaries for translated titles/descriptions. Keep stable IDs to preserve existing saved lists. Add every interface translation key to both dictionaries. Refresh the asset version query strings in the HTML after changing deployed files; data and locale loaders carry their script's version into JSON requests.
 
-The catalog contains 24 movies: eight earlier titles were replaced and six added.
-Movie details and evening kits include verified direct links to the corresponding
-Rezka movie pages. These open in a new tab.
-
-JavaScript and CSS are formatted for readability. Comments identify the main
-application sections, and recommendation rules are kept in named functions.
-Edit `assets/movies.js`, including `watchUrl`, to update the catalog.
-
-## Assignment criteria
-
-| Technical requirement | Implementation |
-| --- | --- |
-| 3–5 logically connected pages | Five HTML pages linked by the shared navigation and contextual movie-night links. |
-| Consistent design | `shell()` in `assets/app.js` creates the shared header and footer; `assets/style.css` defines shared colors, fonts and components. |
-| Responsive layout | Bootstrap breakpoints and custom media queries adapt the catalog, forms, navigation and movie details. |
-| Bootstrap 12-column grid | `.row`, `.col-lg-6`, `.col-lg-8`, `.col-lg-4`, `.col-md-4` and `.col-6` organize the page content. |
-| JavaScript functionality | Quiz recommendations, two-person matching, name validation, search, filters, evening planning and localStorage persistence. |
-| jQuery effect or animation | The FAQ uses `slideDown`/`slideUp`; question transitions use `fadeIn`. Reduced-motion preferences are respected. |
-| Interactive component | Movie details open in a modal dialog; the FAQ is an accordion. |
-
-Validation on November 8, 2026: all five pages reviewed at 1440×900,
-768×1024 and 390×844, with shared navigation, English content and no broken
-loaded images or horizontal page overflow. Mobile navigation, name validation,
-the FAQ and movie details were checked in the browser. Automated checks cover
-216 quiz profiles and 46,656 pairs of participants. The project includes exactly
-24 referenced movie posters; the eight unused posters have been removed.
-
-## Submission
-
-Submit this project folder as a ZIP and the Word report as a separate document.
-The report must include the student name and group, labeled parts/tasks with
-screenshots, and a summary of the work process. The practice-lesson defense
-requires presenting the project and explaining the implementation.
+Movie metadata, poster and watch-link sources: [assets/SOURCES.md](assets/SOURCES.md). Descriptions and mood labels were written for this educational project. Posters belong to their respective rights holders. Watch links open externally in a new tab.
